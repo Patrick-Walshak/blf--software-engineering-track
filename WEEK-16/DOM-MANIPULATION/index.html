@@ -5,14 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="">
+<body style="background-color: #00674f; color: white;">
 
-    <h1 id="" style="font-size: xx-large; font-weight: bolder;">WELLCOME</h1>
 
-    <input type="text" id="greeting" style="width: 500px; height: 60px; padding-left: 10px;" placeholder="Enter your greeting"/>
+   <div style="display: flex; justify-content: center; padding: 10px; align-items: center; height: 100vh;">
+          <div style="
+        width: 100%;
+        max-width: 600px;
+        border: 1px solid white;
+        padding: 15px;
+        box-sizing: border-box;
+        background-color: #0a3c30;
+        border-radius: 15px;
 
-    <p id="para"></p>
+    ">
+                   <h1 style="
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+        ">
+            Turn simple text into styled<br> expressions.
+        </h1>
+        <h4 style="font-size: larger;">Enter Your Text Here</h4>
+                <input type="text" id="greeting" placeholder="Enter any text" style="
+                    width: 100%;
+                    height: 50px;
+                    padding: 10px;
+                    outline: none;
+                    border-radius: 8px;
+                    box-sizing: border-box;
+                    font-size: 1rem;" />
     
-    <script src="main.js"></script>
+
+             <p id="boldText" style="margin-top: 20px; font-weight: bolder; font-size: x-large; width: 100%; height: 50px; background-color: white; color: black; display: flex; align-items: center; text-align: center; padding-left: 8px; border-radius: 8px;"></p>
+            <p id="italicText" style="margin-top: 10px; font-style: italic; font-size: x-large; width: 100%; height: 50px; background-color: white; color: black; display: flex; align-items: center; text-align: center; padding-left: 8px; border-radius: 7px;"></p>
+        </div>
+    </div>
+   
+    
+    <script>
+        const greet = document.querySelector("#greeting")
+        const p = document.querySelector("#para")
+
+        const bold = document.querySelector("#boldText")
+        const italic = document.querySelector("#italicText")
+
+        greet.addEventListener('input', function (e) {
+            bold.innerText = e.target.value
+            italic.innerText = e.target.value
+        })
+        greet.addEventListener('input', function (e) {
+            console.log(e.target.value)
+
+            p.innerHTML = e.target.value
+
+
+        })
+    </script>
 </body>
 </html>
