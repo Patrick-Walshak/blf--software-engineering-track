@@ -284,6 +284,9 @@
   .h-\[377px\] {
     height: 377px;
   }
+  .h-\[399px\] {
+    height: 399px;
+  }
   .h-\[577px\] {
     height: 577px;
   }
@@ -481,6 +484,9 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
+  .p-16 {
+    padding: calc(var(--spacing) * 16);
+  }
   .p-\[-2px\] {
     padding: -2px;
   }
@@ -547,6 +553,21 @@
   .font-extrabold {
     --tw-font-weight: var(--font-weight-extrabold);
     font-weight: var(--font-weight-extrabold);
+  }
+  .text-\[\#\] {
+    color: #;
+  }
+  .text-\[\#d8\] {
+    color: #d8;
+  }
+  .text-\[\#d8ff99\] {
+    color: #d8ff99;
+  }
+  .text-\[\#d8ff\] {
+    color: #d8ff;
+  }
+  .text-\[\#d\] {
+    color: #d;
   }
   .text-black {
     color: var(--color-black);
