@@ -19,12 +19,9 @@
         </div>
     </form>
 
-    <div id="notes">
-        <ol>
-            <li>Js Intro</li><button>Update</button><button>Delete</button>
-            <li>Js Intro</li><button>Update</button><button>Delete</button>
-            <li>Js Intro</li><button>Update</button><button>Delete</button>
-            <li>Js Intro</li><button>Update</button><button>Delete</button>
+    <div >
+        <ol id="notes">
+            
         </ol>
     </div>
 
@@ -33,11 +30,29 @@
 
         btn.addEventListener("click", (e) =>{
             e.preventDefault()
+
+            let savedNotes = JSON.parse(localStorage.getItem("notes")) || []
+
             let title=  document.getElementById("title")
             let content = document.getElementById("content")
 
+            let notes = document.getElementById("notes")
+
+            notes.innerHTML += `<li>${title.value}<button>Update</button><button>Delete</button></li>`
+
+                savedNotes.push(
+                    {
+                        title: title.value,
+                        content: content.value
+                    }
+                )
+
+            localStorage.setItem("notes", JSON.stringify(savedNotes))
+                    // renderNoted()
             console.log(title.value, content.value)
         })
+
+         
     </script>
 </body>
 </html>
