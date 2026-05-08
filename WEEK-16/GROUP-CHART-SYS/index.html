@@ -1,11 +1,121 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Group Chat UI</title>
 </head>
-<body>
-    
+<body class="bg-gradient-to-br from-[#051F20] via-[#163832] to-[#235347] min-h-screen flex items-center justify-center p-4">
+
+  <!-- Main Chat Container -->
+  <main class="w-full max-w-6xl h-[95vh] bg-[#0B2B26]/90 backdrop-blur-xl rounded-[35px] overflow-hidden shadow-2xl border border-[#235347] flex">
+
+
+
+      <!-- Search -->
+      
+    <!-- Chat Section -->
+    <section class="flex-1 flex flex-col bg-[#163832]">
+
+      <!-- Top Navbar -->
+      <div class="h-[90px] px-6 border-b border-[#235347] flex items-center justify-between bg-[#0B2B26]">
+
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-full bg-[#8EB69B] text-[#051F20] font-bold flex items-center justify-center text-lg shadow-lg">
+            DT
+          </div>
+
+          <div>
+            <h2 class="text-[#DAF1DE] font-bold text-lg">Design Team</h2>
+            <p class="text-[#8EB69B] text-sm">23 members online</p>
+          </div>
+        </div>
+
+
+        <div class="flex items-center gap-3">
+          <button class="bg-[#163832] hover:bg-[#235347] text-[#DAF1DE] w-12 h-12 rounded-2xl text-lg transition-all duration-300">
+            📞
+          </button>
+
+          <button class="bg-[#163832] hover:bg-[#235347] text-[#DAF1DE] w-12 h-12 rounded-2xl text-lg transition-all duration-300">
+            ⋮
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Messages -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-6">
+
+        <!-- Incoming -->
+        <div class="flex items-start gap-3 max-w-[80%]">
+          <div class="w-11 h-11 rounded-full bg-[#8EB69B] flex items-center justify-center text-[#051F20] font-bold">
+            J
+          </div>
+
+          <div>
+            <div class="bg-[#0B2B26] text-[#DAF1DE] px-5 py-4 rounded-[25px] rounded-tl-sm shadow-lg">
+              Guys, the UI is looking clean already 🔥
+            </div>
+            <p class="text-[#8EB69B] text-xs mt-1 ml-2">9:10 PM</p>
+          </div>
+        </div>
+
+
+        <!-- Outgoing -->
+        <div class="flex justify-end">
+          <div>
+            <div class="bg-[#8EB69B] text-[#051F20] px-5 py-4 rounded-[25px] rounded-br-sm shadow-lg max-w-[400px] font-medium">
+              I will handle the JavaScript tomorrow.
+            </div>
+            <p class="text-[#8EB69B] text-xs mt-1 text-right mr-2">9:12 PM</p>
+          </div>
+        </div>
+
+
+        <!-- Incoming -->
+        <div class="flex items-start gap-3 max-w-[80%]">
+          <div class="w-11 h-11 rounded-full bg-[#235347] flex items-center justify-center text-[#DAF1DE] font-bold">
+            A
+          </div>
+
+          <div>
+            <div class="bg-[#0B2B26] text-[#DAF1DE] px-5 py-4 rounded-[25px] rounded-tl-sm shadow-lg">
+              Make sure the responsiveness is smooth too.
+            </div>
+            <p class="text-[#8EB69B] text-xs mt-1 ml-2">9:15 PM</p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Input Area -->
+      <div class="p-5 border-t border-[#235347] bg-[#0B2B26]">
+        <div class="flex items-center gap-4 bg-[#163832] p-3 rounded-[25px]">
+
+          <button class="text-2xl text-[#8EB69B] hover:scale-110 transition-all duration-300">
+            +
+          </button>
+
+          <input
+            type="text"
+            placeholder="Type your message..."
+            class="flex-1 bg-transparent outline-none text-[#DAF1DE] placeholder:text-[#8EB69B] px-2"
+          />
+
+          <button class="bg-[#8EB69B] hover:scale-105 transition-all duration-300 text-[#051F20] px-6 py-3 rounded-2xl font-semibold shadow-lg">
+            Send
+          </button>
+
+        </div>
+      </div>
+
+    </section>
+  </main>
+
 </body>
 </html>
+```
