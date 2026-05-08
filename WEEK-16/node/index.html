@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My notes</h1>
+    <form>
+        <div>
+            <input id="title" type="text" placeholder="title">
+        </div>
+        <div>
+            <textarea name="" id="content" placeholder="Content"></textarea>
+        </div>
+        <div>
+            <button id="submit_note">Add</button>
+        </div>
+    </form>
+
+    <div id="notes">
+        <ol>
+            <li>Js Intro</li><button>Update</button><button>Delete</button>
+            <li>Js Intro</li><button>Update</button><button>Delete</button>
+            <li>Js Intro</li><button>Update</button><button>Delete</button>
+            <li>Js Intro</li><button>Update</button><button>Delete</button>
+        </ol>
+    </div>
+
+    <script>
+        const btn = document.getElementById("submit_note")
+
+        btn.addEventListener("click", (e) =>{
+            e.preventDefault()
+            let title=  document.getElementById("title")
+            let content = document.getElementById("content")
+
+            console.log(title.value, content.value)
+        })
+    </script>
+</body>
+</html>
+
+
+<!-- set item basically help u to add item  to ur local storage -->
+<!-- a local storage is only peculia to a domain -->
