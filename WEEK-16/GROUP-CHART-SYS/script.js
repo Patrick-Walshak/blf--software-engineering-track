@@ -2,13 +2,12 @@ const chatBox = document.getElementById("chatBox")
 const messageInput = document.getElementById("messageInput")
 const sendBtn = document.getElementById("sendBtn")
 
-let messages = JSON.parse(localStorage.getItem("messages")) || []
+let messages = JSON.parse(localStorage.getItem("messages")) || []//It tries to get saved messages from the browser, converts them back into an array, and if nothing is found, it just starts with an empty array
 sendBtn.addEventListener("click", (e) =>{
     e.preventDefault()
 
-    
+    let message = messageInput.value//It takes what the user typed in the input box and stores it in a variable called message
     messages.push(message)
-    let message = messageInput.value
     
     chatBox.innerHTML += ` <div class="flex justify-end">
     <div class="bg-[#8EB69B] text-[#051F20] px-5 py-4 rounded-[25px]">
@@ -16,7 +15,7 @@ sendBtn.addEventListener("click", (e) =>{
     </div>
   </div>`
 
-   localStorage.setItem("messages", JSON.stringify(messages))
+   localStorage.setItem("messages", JSON.stringify(messages))//It saves your messages into the browser storage.
 
     
 messageInput.value = ""
