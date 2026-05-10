@@ -228,6 +228,9 @@
   .max-w-\[80\%\] {
     max-width: 80%;
   }
+  .max-w-\[250px\] {
+    max-width: 250px;
+  }
   .max-w-\[400px\] {
     max-width: 400px;
   }
@@ -400,6 +403,9 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .break-words {
+    overflow-wrap: break-word;
   }
   .text-\[\#8EB69B\] {
     color: #8EB69B;
