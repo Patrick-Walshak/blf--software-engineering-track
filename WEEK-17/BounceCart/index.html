@@ -1,0 +1,341 @@
+# Art Basketball Store UI (HTML + Tailwind CSS)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HoopArt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#5D3C64] text-white overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav class="w-full flex items-center justify-between px-6 md:px-16 py-5 border-b border-[#BA6E8F]/30 backdrop-blur-md sticky top-0 bg-[#5D3C64]/90 z-50">
+    <div>
+      <h1 class="text-2xl md:text-3xl font-black tracking-widest uppercase">
+        Hoop<span class="text-[#D391B0]">Art</span>
+      </h1>
+    </div>
+
+    <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-gray-200">
+      <li><a href="#" class="hover:text-[#D391B0] duration-300">Home</a></li>
+      <li><a href="#" class="hover:text-[#D391B0] duration-300">Collections</a></li>
+      <li><a href="#" class="hover:text-[#D391B0] duration-300">Trending</a></li>
+      <li><a href="#" class="hover:text-[#D391B0] duration-300">Contact</a></li>
+    </ul>
+
+    <div class="flex items-center gap-4">
+      <button class="bg-[#BA6E8F] hover:bg-[#D391B0] duration-300 px-5 py-2 rounded-full text-sm font-semibold shadow-lg shadow-black/20">
+        Cart (0)
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex items-center px-6 md:px-16 py-20">
+    <div class="grid md:grid-cols-2 gap-16 items-center w-full">
+
+      <!-- TEXT -->
+      <div>
+        <p class="uppercase tracking-[6px] text-[#BA6E8F] mb-4 text-sm">
+          Basketball Art Collection
+        </p>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+          Art Meets <br>
+          <span class="text-[#D391B0]">Basketball</span>
+        </h1>
+
+        <p class="text-gray-300 leading-8 text-lg max-w-xl mb-8">
+          Explore premium basketball-inspired digital artworks, posters, and creative designs made for hoop lovers and modern spaces.
+        </p>
+
+        <div class="flex gap-5 flex-wrap">
+          <button class="bg-[#D391B0] hover:scale-105 duration-300 px-8 py-4 rounded-full font-semibold shadow-2xl shadow-black/30">
+            Shop Now
+          </button>
+
+          <button class="border border-[#BA6E8F] hover:bg-[#BA6E8F] duration-300 px-8 py-4 rounded-full font-semibold">
+            Explore Art
+          </button>
+        </div>
+      </div>
+
+
+      <!-- HERO CARD -->
+      <div class="relative flex justify-center">
+
+        <div class="absolute w-72 h-72 bg-[#BA6E8F]/30 rounded-full blur-3xl"></div>
+
+        <div class="relative bg-[#7B466A]/60 border border-[#BA6E8F]/20 backdrop-blur-xl rounded-[40px] p-6 shadow-2xl shadow-black/40 w-[320px] md:w-[400px] rotate-3 hover:rotate-0 duration-500">
+
+          <img
+            src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop"
+            class="rounded-[25px] h-[420px] w-full object-cover"
+            alt="basketball"
+          >
+
+          <div class="mt-5 flex items-center justify-between">
+            <div>
+              <h2 class="text-2xl font-bold">Street Legend</h2>
+              <p class="text-gray-300 text-sm mt-1">Digital Basketball Art</p>
+            </div>
+
+            <div class="bg-[#D391B0] text-black font-bold px-4 py-2 rounded-full">
+              $120
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PRODUCTS SECTION -->
+  <section class="px-6 md:px-16 py-20">
+
+    <div class="flex items-center justify-between mb-14 flex-wrap gap-4">
+      <div>
+        <p class="uppercase text-[#BA6E8F] tracking-[5px] text-sm mb-2">
+          Featured Arts
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-black">
+          Trending Collections
+        </h2>
+      </div>
+
+      <button class="border border-[#BA6E8F] px-6 py-3 rounded-full hover:bg-[#BA6E8F] duration-300">
+        View All
+      </button>
+    </div>
+
+
+    <!-- GRID -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- CARD 1 -->
+      <div class="bg-[#7B466A]/70 rounded-[30px] overflow-hidden shadow-2xl shadow-black/20 hover:-translate-y-2 duration-300 group">
+        <div class="overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=1200&auto=format&fit=crop"
+            class="h-72 w-full object-cover group-hover:scale-110 duration-500"
+            alt=""
+          >
+        </div>
+
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Sky Dunk</h3>
+            <span class="text-[#D391B0] font-bold">$80</span>
+          </div>
+
+          <p class="text-gray-300 text-sm leading-7 mb-5">
+            Modern basketball poster with urban vibes and premium art style.
+          </p>
+
+          <button class="w-full bg-[#BA6E8F] hover:bg-[#D391B0] text-white py-3 rounded-2xl font-semibold duration-300">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- CARD 2 -->
+      <div class="bg-[#7B466A]/70 rounded-[30px] overflow-hidden shadow-2xl shadow-black/20 hover:-translate-y-2 duration-300 group">
+        <div class="overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1518063319789-7217e6706b04?q=80&w=1200&auto=format&fit=crop"
+            class="h-72 w-full object-cover group-hover:scale-110 duration-500"
+            alt=""
+          >
+        </div>
+
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Night Court</h3>
+            <span class="text-[#D391B0] font-bold">$95</span>
+          </div>
+
+          <p class="text-gray-300 text-sm leading-7 mb-5">
+            A clean dark-themed basketball artwork inspired by street culture.
+          </p>
+
+          <button class="w-full bg-[#BA6E8F] hover:bg-[#D391B0] text-white py-3 rounded-2xl font-semibold duration-300">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- CARD 3 -->
+      <div class="bg-[#7B466A]/70 rounded-[30px] overflow-hidden shadow-2xl shadow-black/20 hover:-translate-y-2 duration-300 group">
+        <div class="overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1200&auto=format&fit=crop"
+            class="h-72 w-full object-cover group-hover:scale-110 duration-500"
+            alt=""
+          >
+        </div>
+
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Purple Motion</h3>
+            <span class="text-[#D391B0] font-bold">$110</span>
+          </div>
+
+          <p class="text-gray-300 text-sm leading-7 mb-5">
+            Stylish hoop artwork blended with aesthetic purple gradients.
+          </p>
+
+          <button class="w-full bg-[#BA6E8F] hover:bg-[#D391B0] text-white py-3 rounded-2xl font-semibold duration-300">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- CARD 4 -->
+      <div class="bg-[#7B466A]/70 rounded-[30px] overflow-hidden shadow-2xl shadow-black/20 hover:-translate-y-2 duration-300 group">
+        <div class="overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop"
+            class="h-72 w-full object-cover group-hover:scale-110 duration-500"
+            alt=""
+          >
+        </div>
+
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Hoop Energy</h3>
+            <span class="text-[#D391B0] font-bold">$70</span>
+          </div>
+
+          <p class="text-gray-300 text-sm leading-7 mb-5">
+            Vibrant basketball-inspired wall art for creative spaces.
+          </p>
+
+          <button class="w-full bg-[#BA6E8F] hover:bg-[#D391B0] text-white py-3 rounded-2xl font-semibold duration-300">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- CARD 5 -->
+      <div class="bg-[#7B466A]/70 rounded-[30px] overflow-hidden shadow-2xl shadow-black/20 hover:-translate-y-2 duration-300 group">
+        <div class="overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?q=80&w=1200&auto=format&fit=crop"
+            class="h-72 w-full object-cover group-hover:scale-110 duration-500"
+            alt=""
+          >
+        </div>
+
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Game Time</h3>
+            <span class="text-[#D391B0] font-bold">$88</span>
+          </div>
+
+          <p class="text-gray-300 text-sm leading-7 mb-5">
+            Dynamic sports artwork made with smooth modern aesthetics.
+          </p>
+
+          <button class="w-full bg-[#BA6E8F] hover:bg-[#D391B0] text-white py-3 rounded-2xl font-semibold duration-300">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- CARD 6 -->
+      <div class="bg-[#7B466A]/70 rounded-[30px] overflow-hidden shadow-2xl shadow-black/20 hover:-translate-y-2 duration-300 group">
+        <div class="overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1519766304817-4f37bda74a26?q=80&w=1200&auto=format&fit=crop"
+            class="h-72 w-full object-cover group-hover:scale-110 duration-500"
+            alt=""
+          >
+        </div>
+
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Champion Mode</h3>
+            <span class="text-[#D391B0] font-bold">$140</span>
+          </div>
+
+          <p class="text-gray-300 text-sm leading-7 mb-5">
+            Bold basketball canvas art with premium visual aesthetics.
+          </p>
+
+          <button class="w-full bg-[#BA6E8F] hover:bg-[#D391B0] text-white py-3 rounded-2xl font-semibold duration-300">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CHECKOUT SECTION -->
+  <section class="px-6 md:px-16 py-20">
+
+    <div class="bg-[#7B466A]/70 rounded-[40px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl shadow-black/20">
+
+      <div>
+        <p class="uppercase tracking-[5px] text-[#BA6E8F] text-sm mb-4">
+          Checkout Ready
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-black leading-tight mb-5">
+          Complete Your <br>
+          Basketball Art Collection
+        </h2>
+
+        <p class="text-gray-300 max-w-xl leading-8">
+          Add your favorite basketball artworks to cart and create a legendary collection.
+        </p>
+      </div>
+
+      <button class="bg-[#D391B0] hover:scale-105 duration-300 px-10 py-5 rounded-full text-black font-bold text-lg shadow-2xl shadow-black/20">
+        Checkout Now
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-16 py-10 border-t border-[#BA6E8F]/20 mt-10">
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <div>
+        <h2 class="text-3xl font-black uppercase">
+          Hoop<span class="text-[#D391B0]">Art</span>
+        </h2>
+      </div>
+
+      <div class="flex items-center gap-6 text-sm text-gray-300">
+        <a href="#" class="hover:text-[#D391B0] duration-300">Instagram</a>
+        <a href="#" class="hover:text-[#D391B0] duration-300">Twitter</a>
+        <a href="#" class="hover:text-[#D391B0] duration-300">Dribbble</a>
+      </div>
+
+      <p class="text-gray-400 text-sm">
+        © 2026 HoopArt. All Rights Reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
+```
