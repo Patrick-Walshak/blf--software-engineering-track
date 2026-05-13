@@ -35,58 +35,59 @@
 // console.log(sentEmail)
 
 //withdraw from the sender and add to the resiver 
-// let users = [ 
-//     {
-//         id: 1,
-//         balance:2000,
-//         name:"MP"
-//     },
-//     {
-//         id: 2,
-//         balance:4000,
-//         name:"JS"
-//     },
-//     {
-//         id: 3,
-//         balance:4000,
-//         name:"Lex"
-//     },
-// ]
+let users = [ 
+    {
+        id: 1,
+        balance:2000,
+        name:"MP"
+    },
+    {
+        id: 2,
+        balance:4000,
+        name:"JS"
+    },
+    {
+        id: 3,
+        balance:4000,
+        name:"Lex"
+    },
+]
 
-// function checkUser(id){
-//     let user = users.find(user => user.id == id)
-//     // new Promise((resolve, reject) => (
+function checkUser(id){
+    let user = users.find(user => user.id == id)
+
+    if (user){
+        return user
+    }
+
+    return null
+}
+
+
+function updateBlance(id, amount, op) {
+    users.forEach((user) => {
+        if(user.id == id) {
+            if(op == "withdraw"){
+                user.balance -= amount
+            }else{
+                user.balance += amount
+            }
+        }
+    });
+}
+
+(() => {
+    let users = checkUser(1)
+    let amount = 2000
+
+    users.then((data) => {
+        let updateBlance = updateBlance(user.id, amount, "withdraw")
+
         
-        
-//     // ))
-
-//     if (user){
-//         return user
-//     }
-
-//     return null
-// }
-
-
-// function updateBlance(id, amount, op) {
-//     users.forEach((user) => {
-//         if(user.id == id) {
-//             if(op == "withdraw"){
-//                 user.balance -= amount
-//             }else{
-//                 user.balance += amount
-//             }
-//         }
-//     });
-// }
-
-// (() => {
-//     let users = checkUser(1)
-
-//     updateBlance(1, 1000, "deposite")
+    })
+    updateBlance(1, 1000, "deposite")
     
-//     console.log(users)
-// })()
-
+    console.log(users)
+})()
 
 
