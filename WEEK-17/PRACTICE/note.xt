@@ -1,0 +1,43 @@
+QUESTION 1. 
+it will store the user data in the localStora
+
+QUESTION2. 
+
+Because the did not store there task or todo thethis localStora
+
+QUESTION3.  
+
+let students = ["John", "Mike", "Sarah"]
+let students = (JSON.stringify() localStorage.setitem(
+
+QUESTION4. 
+
+we use JSON.parse to convert our JSON string into and arry or Obje
+
+QUESTION5.
+
+localStorage.setItem() => is mean save something in the localStorage
+localStorage.getItem() => mean get a data there is been save
+
+QUESTION6.
+
+localStorage will prevemt the item that is selected from disapearin
+
+QUESTION7
+
+arry
+but i done really know w
+
+QUESTION8
+
+localStorage.clear() => will delete all the ite
+
+QUESTION9
+
+localStorage.setItem("username", "Wallex") 
+key: username
+value: "walle
+
+QUESTION 10
+
+what i basically understand by localStorage is that saving something locally and preventing it from disapearing from been refresh
