@@ -8,7 +8,7 @@ Because the did not store there task or todo thethis localStora
 QUESTION3.  
 
 let students = ["John", "Mike", "Sarah"]
-let students = (JSON.stringify() localStorage.setitem(
+let students = (JSON.stringify() localStorage.setitem())
 
 QUESTION4. 
 

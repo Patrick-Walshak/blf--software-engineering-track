@@ -24,5 +24,62 @@
     <button id="signupBtn">Register</button>
   </div>
 
+  <script>
+    // let signupBtn = document.getElementById("signupBtn")
+    
+    // let newUser = []
+    // signupBtn.addEventListener("click", () =>{
+    //     let name = document.getElementById("signupName").value 
+    //     let email = document.getElementById("signupEmail").value
+    //     let password = document.getElementById("signupPassword").value
+
+        
+
+
+    //     let users = JSON.parse(localStorage.getItem("users")) || []
+    //     let newuser= {
+    //         name: name,
+    //         email: email,
+    //         password: password
+    //     }
+
+    //     if(name && email && password){
+    //         users.push(newuser)
+    //         localStorage.setItem("users", JSON.stringify(users))
+    //         alert('Signup successful!');
+
+    //     }else{
+    //         alert("Fill all field!")
+    //     }
+
+    // })
+
+
+    let newUser = []
+    const name = document.getElementById("signupName")
+    const email = document.getElementById("signupEmail")
+    const password = document.getElementById("signeupPassword")
+    let signupBtn = document.getElementById("signupBtn")
+
+    let users = JSON.parse(localStorage.getItem("users")) || []
+    let newuser = [
+            {
+                name: name,
+                email: email,
+                password: password
+            }
+        ]
+
+    signupBtn.addEventListener("click", () => {
+        if(name && email &&  password){
+            newUser.push(newUser)
+            localStorage.setItem("users", JSON.stringify(users))
+            alert("Sign Successfully!")
+        }
+       
+
+        console.log(name.value, email.value, password.value)
+    })
+  </script>
 </body>
 </html>
