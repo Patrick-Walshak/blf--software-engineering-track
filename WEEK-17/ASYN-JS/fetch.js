@@ -1,4 +1,12 @@
-let url = "https://jsonplaceholder.typicode.com/users"; 
-fetch(url, {method: "Get"
+api = fetch("https://jsonplaceholder.typicode.com/users"), {
 
-}).then(res => console.log(res.body))
+    method: "GET"
+
+}; 
+
+api
+
+.then(res => res.json())
+.then((data) => {
+    console.log(data [0].name)
+})
