@@ -30,3 +30,31 @@
 //  <!--$ symbol ==> tryogn to say that the id that end with the spicific word selected -->
 
 //  <!-- how tot effectively use ur dev too -->
+
+
+ //   fetch("https://jsonplaceholder.typicode.com/todos")
+    //         .then(res => res.json())
+    //         .then(data => data.forEach(todo =>
+    //             document.querySelector("#todoList")
+    //                 .innerHTML += `<li>${todo.title}</li>`
+    //         ))
+
+        // fetch("https://jsonplaceholder.typicode.com/todos")
+    //     .then(res => res.json())
+    //     .then(data => {
+
+    //         let todoList = document.querySelector("#todoList")
+
+    //         data.forEach(todo => {
+
+    //             let listItem = document.createElement("li")
+
+    //             listItem.innerText = todo.title
+
+    //             listItem.className = "bg-white p-3 rounded-lg mb-2 shadow"
+
+    //             todoList.appendChild(listItem)
+
+    //         })
+
+    //     })

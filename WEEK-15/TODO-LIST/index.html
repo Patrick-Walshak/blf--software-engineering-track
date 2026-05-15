@@ -32,74 +32,47 @@
 
             </div>
 
-            <ul class="mt-4 mb-2 mx-auto font-extrabold bg-purple-200 rounded-lg p-4 w-full max-w-sm sm:max-w-md" id="todoList"></ul>
+            <ul class="flex gap-4 flex-wrap mt-4 mb-2 mx-auto font-extrabold  rounded-lg p-4 w-full max-w-sm sm:max-w-md" id="todoList"></ul>
         </div>
     </main>
     <script>
+    // after u fetch post then use user id to fetch the user details 
 
-        let todos = []
+    let todoUrl = "https://jsonplaceholder.typicode.com/posts/"
 
-        let addBtn = document.querySelector("#addBtn")
-        let todoList = document.querySelector("#todoList")
-        let taskInput = document.querySelector("#taskInput")
+            fetch(todoUrl)
+            .then((res) => res.json())
+            .then((data) => {
 
-        function renderTodos() {
-            todoList.innerHTML = ""
-            todos.forEach((todo, index) => {
-                let li = document.createElement("li")
-                li.classList.add("bg-white","p-2","rounded-lg","mb-2","flex","justify-between","items-center")
+                let todoList = document.querySelector("#todoList")
 
-                let span = document.createElement("span")
+                data.forEach((post) => {
 
-                span.textContent = todo.text
-                if (todo.completed) {
-                    span.classList.add(
-                        "line-through",
-                        "opacity-50"
-                    )
-                }
-                let buttonContainer = document.createElement("div")
-                buttonContainer.classList.add("flex","gap-2")
+                fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
+                    .then((res) => res.json())
+                    .then((user) => {
 
-                let completeBtn = document.createElement("button")
-                completeBtn.textContent = todo.completed ? "Undo" : "Complete"
-                completeBtn.classList.add("bg-green-500","text-white","px-2","py-1","rounded")
-                completeBtn.addEventListener("click", () => {
-                    todo.completed = !todo.completed
-                    renderTodos()
-                })
-                let deleteBtn = document.createElement("button")
-                deleteBtn.textContent = "Delete"
-                deleteBtn.classList.add("bg-red-500", "text-white", "px-2", "py-1", "rounded")
-                deleteBtn.addEventListener("click", () => {
-                    todos.splice(index, 1)
+                    let listItem = document.createElement("li")
+
+                    listItem.innerText = `${post.title} - ${user.username}`
+
+                    listItem.className = "bg-white p-3 rounded-lg mb-2"
+
+                    todoList.appendChild(listItem)
+
+                    // console.log(user.username)
+                    console.log(post)
+
+                    })
 
                 })
-                buttonContainer.appendChild(completeBtn)
-                buttonContainer.appendChild(deleteBtn)
-                li.appendChild(span)
-                li.appendChild(buttonContainer)
-                todoList.appendChild(li)
+
             })
-        }
-
-        addBtn.addEventListener("click", () => {
-            let todoValue = taskInput.value
-            if (todoValue === "") {
-                return
-            }
-            let todo = {
-                text: todoValue,
-                completed: false
-            }
-            todos.push(todo)
-            renderTodos()
-            taskInput.value = ""
-            console.log("Button Clicked")
-        })
-
-    </script>
     </script>
 </body>
 
 </html>
+
+<!-- go and make a research on how to get api  -->
+<!-- got and make resez arch on using header -->
+<!-- go and create a weather app that user can search for a location -->
