@@ -1,4 +1,4 @@
-// Build a product ordering system that users can place and order and the order get process 
+// Build a product ordering system that users can place and the order get process 
 
 // the status of the order will be
 // 1. PENDING 
@@ -8,32 +8,47 @@
 // 5. DELIVERED
 
 // and the user can only place one product 
-//using promise in javscript 
-//how to approach'
 let users = [
     {
         id: 1,
         userName: "Alice",
         balance: 5000
-
     }
 ]
 
-let product = [
-    {
-        
-    }
+let products = [
+   {
+      name: "Laptop",
+      price: 3000
+   }
 ]
 
-function placeOrder(userName, product, price){
-    return new Promise((resolve, reject) => {
+
+
+// CHECK USER FUNCTION
+function checkUser(userName){
+
     let foundUser = users.find(
-      user => user.userName === userName
+        user => user.userName === userName
     )
 
+    return foundUser
+}
+
+
+
+
+
+function placeOrder(userName, product, price){
+
+    return new Promise((resolve, reject) => {
+
+    // CALLING checkUser FUNCTION
+    let foundUser = checkUser(userName)
+
     if (!foundUser) {
-      
-        reject("User not found")
+
+      reject("User not found")
       return
     }
 
@@ -43,6 +58,19 @@ function placeOrder(userName, product, price){
     }
 
     console.log("PENDING")
+
+    setTimeout(() => {
+
+      console.log("PROCESSING")
+
+      setTimeout(() => {
+
+        console.log("PROCESS")
+
+        setTimeout(() => {
+
+          console.log("OUT FOR DELIVERY")
+
           setTimeout(() => {
 
             console.log("DELIVERED")
@@ -56,15 +84,20 @@ function placeOrder(userName, product, price){
             })
 
           }, 2000)
-
-
-
-    })
-    
+        }, 5000)
+      }, 4000)
+    }, 6000)
+  })
 }
+
+
 
 placeOrder("Alice", "Laptop", 3000)
 
 .then(result => {
   console.log(result)
+})
+
+.catch(error => {
+  console.log(error)
 })
