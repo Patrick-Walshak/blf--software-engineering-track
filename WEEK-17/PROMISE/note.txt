@@ -1,0 +1,5 @@
+Three state of promise are
+. Pending
+. Resolve OR Fulfilled
+. Reject
+ is promise and anonimous function if yes then why
