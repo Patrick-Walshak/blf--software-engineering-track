@@ -29,7 +29,7 @@ searchBtn.addEventListener("click", () => {
         weatherCondition.innerText = data.weather[0].main
 
 
-         let weather = data.weather[0].main
+        let weather = data.weather[0].main
 
         if(weather === "Clouds"){
 
@@ -46,9 +46,9 @@ searchBtn.addEventListener("click", () => {
         }
 
         body.style.backgroundSize = "cover"
-
         body.style.backgroundPosition = "center"
-
+        
+        console.log(weather)
 
     })
 
