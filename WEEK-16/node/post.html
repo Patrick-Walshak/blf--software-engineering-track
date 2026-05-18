@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" class="user-Id"><br>
+        <input type="text" class="title"><br>
+        <!-- <input type="text"> -->
+    </form>
+    <select id="isCompleted">
+        <option value="true">Yes</option>
+        <option value="fale">No</option>
+    </select>
+    <button id="add-Todo" onclick="addTodo">Add</button>
+
+    <ul id="todoList"></ul>
+    <script>
+        const userId = document.getElementById("user-Id")
+        const title = document.getElementById("title")
+        const isCompleted = document.getElementById("isCompleted")
+
+        let addTodo =  document.getElementById("add-Todo").value
+
+        console.log(userId.value, title.value)
+
+
+            fetch("https://jsonplaceholder.typicode.com/todos/", {
+            method: "POST",
+            body:JSON.stringify({
+                userId:userId,
+                title:title,
+                isCompleted:isCompleted
+            
+            })
+        })
+
+        
+    </script>
+</body>
+</html>
