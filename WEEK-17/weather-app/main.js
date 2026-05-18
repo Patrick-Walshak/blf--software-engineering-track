@@ -47,6 +47,8 @@ searchBtn.addEventListener("click", () => {
 
         body.style.backgroundSize = "cover"
         body.style.backgroundPosition = "center"
+        body.style.backgroundColor = "rgba(0,0,0,0.5)"
+        body.style.backgroundBlendMode = "darken"
         
         console.log(weather)
 
