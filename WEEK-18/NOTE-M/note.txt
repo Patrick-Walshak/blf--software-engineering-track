@@ -1,0 +1,6 @@
+
+service death cimulators ==>  is use to solve issues
+one way to handle a promise is by using .THEN and another way is by using  
+
+
+create a todos list app that italises a api and u can have users or guest to use ur apo and ur interace will have login for users and quest and the users can see there todo private 
