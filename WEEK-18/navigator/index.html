@@ -7,14 +7,51 @@
 </head>
 <body>
     <h1>Camera</h1>
+    <p id="isOnline">Checking internet connection</p>
 
+    <div>
+        <video id="camerafeed" autoplay></video>
+
+        <div>
+            <button id="capture">Say Cheese</button>
+        </div>
+
+        <div id="image"></div>
+    </div>
     <script>
-        navigator.MediaDevices({
+
+        let camerafeed = document.querySelector("#camerafeed")
+        let capture = document.querySelector("#capture")
+        let canvas = document.querySelector("#image")
+
+        navigator.MediaDevices.getUserMedia({
             video: true,
             Audio:true
+        }).then((stream) => {
+            console.log(stream)
+            
         })
 
-        console.log(navigator)
+        capture.addEventListener("click", () => {
+            let ctx = canvas.getContext("2d")
+
+            canvas.width = 300
+            canvas.height = 300
+
+            ctx.drawImage(camerafeed, 0, 0)
+        })
+
+        let isOnline = document.querySelector("#isOnline") 
+
+            setInterval(() => {
+                if(navigator.onLine){
+                    isOnline.innerHTML = "Is connected"
+                }else{
+                    isOnline.innerHTML = "Is disconnected"
+                }
+            }, 1000);
+        
     </script>
 </body>
 </html>
+
