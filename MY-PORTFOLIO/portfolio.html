@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Portfolio — Frontend Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            night: '#050709',
+            void: '#080b10',
+            ink: '#0d1117',
+            surface: '#111827',
+            muted: '#1a2235',
+            border: '#1e2d45',
+            accent: '#3b82f6',
+            glow: '#6366f1',
+            violet: '#8b5cf6',
+            cyan: '#06b6d4',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4,0,0.6,1) infinite',
+            'spin-slow': 'spin 20s linear infinite',
+            'shimmer': 'shimmer 2.5s linear infinite',
+            'slide-up': 'slideUp 0.7s ease forwards',
+            'fade-in': 'fadeIn 0.8s ease forwards',
+          },
+          keyframes: {
+            float: {
+              '0%,100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-18px)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% center' },
+              '100%': { backgroundPosition: '200% center' },
+            },
+            slideUp: {
+              from: { opacity: 0, transform: 'translateY(40px)' },
+              to: { opacity: 1, transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              from: { opacity: 0 },
+              to: { opacity: 1 },
+            },
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+          },
+          boxShadow: {
+            'glow-blue': '0 0 40px rgba(59,130,246,0.25)',
+            'glow-violet': '0 0 40px rgba(139,92,246,0.25)',
+            'glow-sm': '0 0 20px rgba(99,102,241,0.15)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body { background-color: #050709; font-family: 'DM Sans', sans-serif; color: #e2e8f0; overflow-x: hidden; }
+
+    /* Gradient text */
+    .grad-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #818cf8 40%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .grad-text-cyan {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 60%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Orb glow */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    /* Glass card */
+    .glass {
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(59, 130, 246, 0.12);
+    }
+    .glass-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-hover:hover {
+      background: rgba(17, 24, 39, 0.85);
+      border-color: rgba(99, 102, 241, 0.35);
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.12), 0 20px 60px rgba(0,0,0,0.4);
+      transform: translateY(-4px);
+    }
+
+    /* Nav glow line */
+    .nav-line {
+      background: linear-gradient(90deg, transparent, #3b82f6, #6366f1, #8b5cf6, transparent);
+      height: 1px;
+    }
+
+    /* Skill bar */
+    .skill-bar-fill {
+      background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+      border-radius: 99px;
+      animation: growBar 1.5s ease forwards;
+      transform-origin: left;
+    }
+    @keyframes growBar {
+      from { width: 0; }
+    }
+
+    /* Section reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CTA button primary */
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #6366f1 60%, #8b5cf6);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #60a5fa, #818cf8 60%, #a78bfa);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary:hover { box-shadow: 0 0 32px rgba(99, 102, 241, 0.55); transform: translateY(-2px); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    /* Border gradient */
+    .border-grad {
+      background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(139,92,246,0.3));
+      padding: 1px;
+      border-radius: 16px;
+    }
+    .border-grad-inner {
+      background: #0d1117;
+      border-radius: 15px;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Project card */
+    .project-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .project-card:hover { transform: translateY(-6px); }
+    .project-card:hover .card-overlay { opacity: 1; }
+    .card-overlay { opacity: 0; transition: opacity 0.35s ease; }
+    .project-card:hover .project-img-bg { transform: scale(1.05); }
+    .project-img-bg { transition: transform 0.5s ease; }
+
+    /* Typing cursor */
+    .cursor::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+      color: #6366f1;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #050709; }
+    ::-webkit-scrollbar-thumb { background: #1e2d45; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+    /* Mobile menu */
+    #mobile-menu { transition: all 0.3s ease; }
+
+    /* Tag pill */
+    .tag { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: #93c5fd; font-size: 0.72rem; padding: 3px 10px; border-radius: 99px; font-family: 'DM Sans', sans-serif; }
+
+    /* Star rating */
+    .star { color: #fbbf24; }
+
+    /* Gradient border line */
+    .divider { background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent); height: 1px; }
+
+    /* Hero grid lines */
+    .hero-grid {
+      background-image: linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="glass border-b border-white/5 transition-all duration-500" id="nav-bg">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#home" class="font-display font-800 text-xl tracking-tight">
+        <span class="grad-text">dev</span><span class="text-white">folio</span><span class="text-blue-500">.</span>
+      </a>
+      <!-- Desktop links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-body font-medium">
+        <a href="#about" class="text-slate-400 hover:text-white transition-colors duration-200">About</a>
+        <a href="#skills" class="text-slate-400 hover:text-white transition-colors duration-200">Skills</a>
+        <a href="#projects" class="text-slate-400 hover:text-white transition-colors duration-200">Projects</a>
+        <a href="#services" class="text-slate-400 hover:text-white transition-colors duration-200">Services</a>
+        <a href="#testimonials" class="text-slate-400 hover:text-white transition-colors duration-200">Reviews</a>
+        <a href="#contact" class="btn-primary text-white text-sm px-5 py-2 rounded-full font-semibold">
+          <span>Hire Me</span>
+        </a>
+      </nav>
+      <!-- Mobile burger -->
+      <button id="burger" class="md:hidden text-slate-400 hover:text-white transition-colors" aria-label="Menu">
+        <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden glass border-b border-white/5 px-5 pb-5">
+    <nav class="flex flex-col gap-4 pt-4 text-sm font-medium">
+      <a href="#about" class="mobile-link text-slate-300 hover:text-white transition-colors">About</a>
+      <a href="#skills" class="mobile-link text-slate-300 hover:text-white transition-colors">Skills</a>
+      <a href="#projects" class="mobile-link text-slate-300 hover:text-white transition-colors">Projects</a>
+      <a href="#services" class="mobile-link text-slate-300 hover:text-white transition-colors">Services</a>
+      <a href="#testimonials" class="mobile-link text-slate-300 hover:text-white transition-colors">Reviews</a>
+      <a href="#contact" class="btn-primary text-white text-sm px-5 py-2 rounded-full font-semibold text-center">
+        <span>Hire Me</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden hero-grid pt-16">
+  <!-- Orbs -->
+  <div class="orb w-[600px] h-[600px] bg-blue-600 top-[-200px] right-[-150px]"></div>
+  <div class="orb w-[400px] h-[400px] bg-violet-600 bottom-[-100px] left-[-100px]"></div>
+  <div class="orb w-[300px] h-[300px] bg-cyan-500 top-[40%] left-[20%] opacity-10"></div>
+
+  <!-- Animated ring -->
+  <div class="absolute right-10 top-1/2 -translate-y-1/2 hidden lg:block">
+    <div class="w-[420px] h-[420px] rounded-full border border-blue-500/10 animate-spin-slow flex items-center justify-center">
+      <div class="w-[340px] h-[340px] rounded-full border border-indigo-500/15 animate-[spin_14s_linear_infinite_reverse] flex items-center justify-center">
+        <div class="w-[260px] h-[260px] rounded-full border border-violet-500/20 animate-spin-slow flex items-center justify-center">
+          <!-- Profile placeholder -->
+          <div class="w-[200px] h-[200px] rounded-full bg-gradient-to-br from-blue-600/30 to-violet-600/30 border border-white/10 flex items-center justify-center overflow-hidden">
+            <div class="text-center">
+              <div class="text-5xl mb-1">👨‍💻</div>
+              <!-- <div class="text-xs text-slate-400 font-body">Your Photo</div> -->
+               <img src="img/photo_2026-05-22_21-04-29.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Floating badges -->
+    <div class="animate-float absolute -top-4 -left-8 glass rounded-xl px-3 py-2 flex items-center gap-2 text-xs font-semibold">
+      <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse-slow"></span>
+      Available for Work
+    </div>
+    <div class="animate-[float_5s_ease-in-out_infinite_1s] absolute bottom-8 -right-4 glass rounded-xl px-3 py-2 text-xs font-semibold">
+      ⚡ 50+ Projects Done
+    </div>
+    <div class="animate-[float_7s_ease-in-out_infinite_0.5s] absolute top-1/2 -left-16 glass rounded-xl px-3 py-2 text-xs font-semibold">
+      🏆 Top Rated Seller
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-5 py-20 lg:py-0">
+    <div class="max-w-2xl">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 text-sm text-blue-300 font-medium animate-fade-in">
+        <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+        Frontend Developer · Available for freelance
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6 animate-slide-up">
+        Crafting<br/>
+        <span class="grad-text">Digital</span><br/>
+        Experiences<span class="text-blue-500">.</span>
+      </h1>
+
+      <!-- Sub -->
+      <p class="text-slate-400 text-lg md:text-xl font-body font-light leading-relaxed mb-10 max-w-lg animate-slide-up" style="animation-delay:0.15s">
+        I build fast, beautiful, and conversion-focused frontends using <strong class="text-slate-200 font-medium">HTML</strong>, <strong class="text-slate-200 font-medium">Tailwind CSS</strong>, and <strong class="text-slate-200 font-medium">JavaScript</strong> — turning ideas into pixels that perform.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4 animate-slide-up" style="animation-delay:0.3s">
+        <a href="#projects" class="btn-primary text-white font-semibold px-7 py-3.5 rounded-full flex items-center gap-2">
+          <span>View My Work</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#contact" class="glass glass-hover text-white font-semibold px-7 py-3.5 rounded-full flex items-center gap-2 hover:border-blue-500/40">
+          <span>Let's Talk</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="flex flex-wrap gap-8 mt-14 animate-slide-up" style="animation-delay:0.45s">
+        <div>
+          <div class="font-display font-bold text-3xl grad-text">3+</div>
+          <div class="text-slate-500 text-sm mt-0.5">Years Experience</div>
+        </div>
+        <div class="w-px bg-white/10"></div>
+        <div>
+          <div class="font-display font-bold text-3xl grad-text">50+</div>
+          <div class="text-slate-500 text-sm mt-0.5">Projects Completed</div>
+        </div>
+        <div class="w-px bg-white/10"></div>
+        <div>
+          <div class="font-display font-bold text-3xl grad-text">98%</div>
+          <div class="text-slate-500 text-sm mt-0.5">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+    <span class="text-slate-600 text-xs font-body">scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-blue-500/60 to-transparent"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section id="about" class="relative py-28 overflow-hidden">
+  <div class="orb w-[400px] h-[400px] bg-violet-600 top-0 right-0 opacity-10"></div>
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Visual side -->
+      <div class="reveal relative">
+        <div class="relative w-full max-w-sm mx-auto lg:mx-0">
+          <!-- Main card -->
+          <div class="border-grad">
+            <div class="border-grad-inner p-8">
+              <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-blue-900/30 via-indigo-900/20 to-violet-900/30 flex items-center justify-center border border-white/5 overflow-hidden">
+                <div class="text-center">
+                  <div class="text-8xl mb-4 animate-float">🧑‍🎨</div>
+                  <p class="text-slate-500 text-sm font-body">Replace with your photo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating stat card -->
+          <div class="glass absolute -right-8 top-8 rounded-2xl p-4 w-44">
+            <div class="text-2xl font-display font-bold grad-text">50+</div>
+            <div class="text-slate-400 text-xs mt-1 font-body">Satisfied clients worldwide</div>
+            <div class="flex gap-0.5 mt-2">
+              <span class="star text-xs">★★★★★</span>
+            </div>
+          </div>
+          <div class="glass absolute -left-8 bottom-8 rounded-2xl p-4 w-44">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+              <span class="text-green-400 text-xs font-semibold">Open to work</span>
+            </div>
+            <div class="text-slate-300 text-xs font-body">Available for new projects this month</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-4 tracking-widest uppercase">
+          <div class="w-8 h-px bg-blue-500"></div>
+          About Me
+        </div>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight">
+          I turn complex ideas into <span class="grad-text">clean code</span>
+        </h2>
+        <div class="space-y-4 text-slate-400 font-body font-light leading-relaxed">
+          <p>Hi, I'm a passionate Frontend Developer specializing in crafting pixel-perfect, high-performance web interfaces. I work at the intersection of design and engineering, building experiences that not only look stunning but convert.</p>
+          <p>With 3+ years in the industry, I've delivered projects for startups, agencies, and direct clients — from landing pages to full SaaS dashboards. Every line of code I write is intentional, clean, and scalable.</p>
+          <p>When I'm not building for clients, I'm experimenting with new design systems, UI animations, and modern web technologies.</p>
+        </div>
+        <!-- Quick facts -->
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <div class="glass rounded-xl p-4">
+            <div class="text-blue-400 text-sm font-semibold mb-1">📍 Location</div>
+            <div class="text-slate-300 text-sm font-body">Lagos, Nigeria</div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-blue-400 text-sm font-semibold mb-1">💼 Experience</div>
+            <div class="text-slate-300 text-sm font-body">3+ Years</div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-blue-400 text-sm font-semibold mb-1">🎓 Education</div>
+            <div class="text-slate-300 text-sm font-body">B.Sc. Computer Science</div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-blue-400 text-sm font-semibold mb-1">🌐 Languages</div>
+            <div class="text-slate-300 text-sm font-body">English (Fluent)</div>
+          </div>
+        </div>
+        <div class="flex gap-4 mt-8">
+          <a href="#contact" class="btn-primary text-white font-semibold px-6 py-3 rounded-full text-sm">
+            <span>Work With Me</span>
+          </a>
+          <a href="#" class="glass glass-hover text-white font-semibold px-6 py-3 rounded-full text-sm flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SKILLS ═══════════════════ -->
+<section id="skills" class="relative py-28">
+  <div class="orb w-[500px] h-[500px] bg-blue-700 bottom-0 left-[-200px] opacity-10"></div>
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-4 tracking-widest uppercase">
+        <div class="w-8 h-px bg-blue-500"></div>
+        Technical Skills
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white">My <span class="grad-text">Toolkit</span></h2>
+      <p class="text-slate-500 mt-4 font-body max-w-lg mx-auto">Technologies I work with to build fast, beautiful, and scalable frontend experiences.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Skill bars -->
+      <div class="space-y-6 reveal">
+        <h3 class="font-display font-semibold text-white text-lg mb-6">Core Proficiency</h3>
+
+        <div class="space-y-5">
+          <!-- HTML -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-slate-300 text-sm font-semibold flex items-center gap-2">
+                <span class="text-orange-400">🌐</span> HTML5
+              </span>
+              <span class="text-blue-400 text-sm font-bold">98%</span>
+            </div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full" style="width:98%"></div>
+            </div>
+          </div>
+          <!-- Tailwind -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-slate-300 text-sm font-semibold flex items-center gap-2">
+                <span class="text-cyan-400">🎨</span> Tailwind CSS
+              </span>
+              <span class="text-blue-400 text-sm font-bold">95%</span>
+            </div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full" style="width:95%"></div>
+            </div>
+          </div>
+          <!-- CSS -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-slate-300 text-sm font-semibold flex items-center gap-2">
+                <span class="text-blue-400">💎</span> CSS3 / SCSS
+              </span>
+              <span class="text-blue-400 text-sm font-bold">90%</span>
+            </div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full" style="width:90%"></div>
+            </div>
+          </div>
+          <!-- JavaScript -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-slate-300 text-sm font-semibold flex items-center gap-2">
+                <span class="text-yellow-400">⚡</span> JavaScript (ES6+)
+              </span>
+              <span class="text-blue-400 text-sm font-bold">85%</span>
+            </div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full" style="width:85%"></div>
+            </div>
+          </div>
+          <!-- Responsive Design -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-slate-300 text-sm font-semibold flex items-center gap-2">
+                <span class="text-green-400">📱</span> Responsive Design
+              </span>
+              <span class="text-blue-400 text-sm font-bold">97%</span>
+            </div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full" style="width:97%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech icons grid -->
+      <div class="reveal">
+        <h3 class="font-display font-semibold text-white text-lg mb-6">Tools & Technologies</h3>
+        <div class="grid grid-cols-3 gap-4">
+          <!-- Tech card template -->
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">🌐</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">HTML5</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">🎨</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">Tailwind</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">⚡</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">JavaScript</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">📐</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">CSS3/SCSS</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">🔧</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">Git/GitHub</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">🖼️</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">Figma</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">📱</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">Responsive</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">✨</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">Animation</span>
+          </div>
+          <div class="glass glass-hover rounded-2xl p-4 flex flex-col items-center gap-2 cursor-default">
+            <span class="text-3xl">🚀</span>
+            <span class="text-slate-300 text-xs font-semibold text-center font-body">Performance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROJECTS ═══════════════════ -->
+<section id="projects" class="relative py-28">
+  <div class="orb w-[500px] h-[500px] bg-indigo-700 top-0 right-[-200px] opacity-10"></div>
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-4 tracking-widest uppercase">
+        <div class="w-8 h-px bg-blue-500"></div>
+        Featured Work
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white">Selected <span class="grad-text">Projects</span></h2>
+      <p class="text-slate-500 mt-4 font-body max-w-lg mx-auto">A curated selection of my best frontend work — from landing pages to full dashboards.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-7">
+      <!-- Project 1: Landing Page -->
+      <div class="project-card glass rounded-2xl overflow-hidden border border-white/5 reveal group">
+        <div class="relative h-52 overflow-hidden">
+          <div class="project-img-bg w-full h-full bg-gradient-to-br from-blue-900/80 via-indigo-900/60 to-slate-900 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-5xl mb-3">🚀</div>
+              <div class="text-slate-400 text-sm font-body">SaaS Landing Page</div>
+            </div>
+          </div>
+          <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-6 gap-3">
+            <a href="#" class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5"><span>🔗 Live Demo</span></a>
+            <a href="#" class="glass text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5 hover:bg-white/10">⬡ GitHub</a>
+          </div>
+          <!-- Number -->
+          <div class="absolute top-4 left-4 font-display font-bold text-4xl text-white/5 select-none">01</div>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="tag">HTML5</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Animation</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">SaaS Landing Page</h3>
+          <p class="text-slate-500 text-sm font-body leading-relaxed">A high-converting SaaS product landing page featuring hero animations, pricing tables, testimonials, and a fully responsive layout optimized for conversions.</p>
+        </div>
+      </div>
+
+      <!-- Project 2: Student Dashboard -->
+      <div class="project-card glass rounded-2xl overflow-hidden border border-white/5 reveal group" style="--reveal-delay:0.1s">
+        <div class="relative h-52 overflow-hidden">
+          <div class="project-img-bg w-full h-full bg-gradient-to-br from-violet-900/80 via-purple-900/60 to-slate-900 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-5xl mb-3">📊</div>
+              <div class="text-slate-400 text-sm font-body">Student Dashboard</div>
+            </div>
+          </div>
+          <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-6 gap-3">
+            <a href="#" class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5"><span>🔗 Live Demo</span></a>
+            <a href="#" class="glass text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5 hover:bg-white/10">⬡ GitHub</a>
+          </div>
+          <div class="absolute top-4 left-4 font-display font-bold text-4xl text-white/5 select-none">02</div>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Charts</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">Student Dashboard UI</h3>
+          <p class="text-slate-500 text-sm font-body leading-relaxed">A modern education dashboard with course tracking, progress charts, grade analytics, and a clean sidebar navigation — all fully responsive and dark-themed.</p>
+        </div>
+      </div>
+
+      <!-- Project 3: E-commerce -->
+      <div class="project-card glass rounded-2xl overflow-hidden border border-white/5 reveal group" style="--reveal-delay:0.2s">
+        <div class="relative h-52 overflow-hidden">
+          <div class="project-img-bg w-full h-full bg-gradient-to-br from-cyan-900/80 via-teal-900/60 to-slate-900 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-5xl mb-3">🛍️</div>
+              <div class="text-slate-400 text-sm font-body">E-commerce Frontend</div>
+            </div>
+          </div>
+          <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-6 gap-3">
+            <a href="#" class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5"><span>🔗 Live Demo</span></a>
+            <a href="#" class="glass text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5 hover:bg-white/10">⬡ GitHub</a>
+          </div>
+          <div class="absolute top-4 left-4 font-display font-bold text-4xl text-white/5 select-none">03</div>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="tag">HTML5</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">JS</span>
+            <span class="tag">Cart Logic</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">E-commerce Frontend</h3>
+          <p class="text-slate-500 text-sm font-body leading-relaxed">A complete e-commerce UI featuring product grids, cart functionality, filter sidebar, checkout flow, and smooth transitions — conversion-optimized and mobile-first.</p>
+        </div>
+      </div>
+
+      <!-- Project 4: Portfolio -->
+      <div class="project-card glass rounded-2xl overflow-hidden border border-white/5 reveal group" style="--reveal-delay:0.3s">
+        <div class="relative h-52 overflow-hidden">
+          <div class="project-img-bg w-full h-full bg-gradient-to-br from-pink-900/80 via-rose-900/60 to-slate-900 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-5xl mb-3">🎨</div>
+              <div class="text-slate-400 text-sm font-body">Portfolio Website</div>
+            </div>
+          </div>
+          <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-6 gap-3">
+            <a href="#" class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5"><span>🔗 Live Demo</span></a>
+            <a href="#" class="glass text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5 hover:bg-white/10">⬡ GitHub</a>
+          </div>
+          <div class="absolute top-4 left-4 font-display font-bold text-4xl text-white/5 select-none">04</div>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="tag">HTML5</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">Animations</span>
+            <span class="tag">UX</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">Developer Portfolio</h3>
+          <p class="text-slate-500 text-sm font-body leading-relaxed">A premium developer portfolio — exactly like this one — with glassmorphism effects, scroll animations, dark mode, and a SaaS-inspired design system.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#" class="glass glass-hover text-white font-semibold px-8 py-3.5 rounded-full text-sm inline-flex items-center gap-2">
+        View All Projects on GitHub
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section id="services" class="relative py-28">
+  <div class="orb w-[400px] h-[400px] bg-blue-600 bottom-0 right-0 opacity-10"></div>
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-4 tracking-widest uppercase">
+        <div class="w-8 h-px bg-blue-500"></div>
+        What I Offer
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white">My <span class="grad-text">Services</span></h2>
+      <p class="text-slate-500 mt-4 font-body max-w-lg mx-auto">Premium frontend solutions designed to help your business stand out and convert.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Service 1 -->
+      <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/30 to-blue-400/10 border border-blue-500/20 flex items-center justify-center mb-5 text-2xl group-hover:scale-110 transition-transform duration-300">🚀</div>
+        <h3 class="font-display font-bold text-lg text-white mb-2">Landing Pages</h3>
+        <p class="text-slate-500 text-sm font-body leading-relaxed">High-converting, pixel-perfect landing pages designed to capture leads and impress visitors from the first scroll.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center justify-between">
+          <span class="text-blue-400 text-sm font-semibold">Starting $50</span>
+          <a href="#contact" class="text-slate-500 hover:text-white text-xs transition-colors flex items-center gap-1">
+            Get a quote →
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.1s">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-600/30 to-violet-400/10 border border-violet-500/20 flex items-center justify-center mb-5 text-2xl group-hover:scale-110 transition-transform duration-300">📊</div>
+        <h3 class="font-display font-bold text-lg text-white mb-2">Web Dashboards</h3>
+        <p class="text-slate-500 text-sm font-body leading-relaxed">Clean, data-rich dashboard UIs with charts, tables, sidebars, and components — from admin panels to analytics suites.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center justify-between">
+          <span class="text-violet-400 text-sm font-semibold">Starting $80</span>
+          <a href="#contact" class="text-slate-500 hover:text-white text-xs transition-colors flex items-center gap-1">
+            Get a quote →
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.2s">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-600/30 to-cyan-400/10 border border-cyan-500/20 flex items-center justify-center mb-5 text-2xl group-hover:scale-110 transition-transform duration-300">🛍️</div>
+        <h3 class="font-display font-bold text-lg text-white mb-2">E-commerce UI</h3>
+        <p class="text-slate-500 text-sm font-body leading-relaxed">Beautiful, conversion-optimized e-commerce frontends — product listings, carts, checkouts, and mobile-first layouts.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center justify-between">
+          <span class="text-cyan-400 text-sm font-semibold">Starting $100</span>
+          <a href="#contact" class="text-slate-500 hover:text-white text-xs transition-colors flex items-center gap-1">
+            Get a quote →
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600/30 to-green-400/10 border border-green-500/20 flex items-center justify-center mb-5 text-2xl group-hover:scale-110 transition-transform duration-300">🎨</div>
+        <h3 class="font-display font-bold text-lg text-white mb-2">Portfolio Sites</h3>
+        <p class="text-slate-500 text-sm font-body leading-relaxed">Stunning portfolio websites for creatives, developers, and agencies — designed to make the right impression instantly.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center justify-between">
+          <span class="text-green-400 text-sm font-semibold">Starting $60</span>
+          <a href="#contact" class="text-slate-500 hover:text-white text-xs transition-colors flex items-center gap-1">
+            Get a quote →
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.1s">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-600/30 to-orange-400/10 border border-orange-500/20 flex items-center justify-center mb-5 text-2xl group-hover:scale-110 transition-transform duration-300">⚡</div>
+        <h3 class="font-display font-bold text-lg text-white mb-2">Speed Optimization</h3>
+        <p class="text-slate-500 text-sm font-body leading-relaxed">Boost your Lighthouse scores and Core Web Vitals. Faster sites rank higher and convert better — I'll make yours fly.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center justify-between">
+          <span class="text-orange-400 text-sm font-semibold">Starting $40</span>
+          <a href="#contact" class="text-slate-500 hover:text-white text-xs transition-colors flex items-center gap-1">
+            Get a quote →
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.2s">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-600/30 to-pink-400/10 border border-pink-500/20 flex items-center justify-center mb-5 text-2xl group-hover:scale-110 transition-transform duration-300">🔄</div>
+        <h3 class="font-display font-bold text-lg text-white mb-2">Design to Code</h3>
+        <p class="text-slate-500 text-sm font-body leading-relaxed">Got a Figma design? I'll convert it to clean, semantic HTML/Tailwind CSS with pixel-perfect accuracy and smooth animations.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center justify-between">
+          <span class="text-pink-400 text-sm font-semibold">Starting $45</span>
+          <a href="#contact" class="text-slate-500 hover:text-white text-xs transition-colors flex items-center gap-1">
+            Get a quote →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section id="testimonials" class="relative py-28">
+  <div class="orb w-[400px] h-[400px] bg-violet-700 top-0 left-[-100px] opacity-10"></div>
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-4 tracking-widest uppercase">
+        <div class="w-8 h-px bg-blue-500"></div>
+        Client Reviews
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white">What Clients <span class="grad-text">Say</span></h2>
+      <p class="text-slate-500 mt-4 font-body max-w-lg mx-auto">Real feedback from real clients — delivered across Fiverr and direct engagements.</p>
+    </div>
+
+    <!-- Testimonial cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- T1 -->
+      <div class="glass glass-hover rounded-2xl p-7 flex flex-col reveal">
+        <div class="flex items-center gap-1 mb-5">
+          <span class="star">★★★★★</span>
+        </div>
+        <p class="text-slate-400 font-body font-light text-sm leading-relaxed flex-1">"Absolutely stunning work. My landing page now looks like a $10k design. Fast delivery, great communication, and the animations are buttery smooth. Will order again!"</p>
+        <div class="mt-6 pt-5 border-t border-white/5 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center text-white font-bold text-sm font-display">SM</div>
+          <div>
+            <div class="text-white text-sm font-semibold">Sarah M.</div>
+            <div class="text-slate-500 text-xs font-body">Startup Founder · 🇺🇸 USA</div>
+          </div>
+          <div class="ml-auto">
+            <span class="text-xs text-blue-400 font-semibold bg-blue-500/10 px-2 py-1 rounded-full">Fiverr</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div class="glass glass-hover rounded-2xl p-7 flex flex-col reveal" style="transition-delay:0.1s">
+        <div class="flex items-center gap-1 mb-5">
+          <span class="star">★★★★★</span>
+        </div>
+        <p class="text-slate-400 font-body font-light text-sm leading-relaxed flex-1">"Built my student dashboard exactly as I envisioned. Clean code, on-time delivery, and incredibly detail-oriented. One of the best freelancers I've worked with on this platform."</p>
+        <div class="mt-6 pt-5 border-t border-white/5 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-pink-600 flex items-center justify-center text-white font-bold text-sm font-display">JK</div>
+          <div>
+            <div class="text-white text-sm font-semibold">James K.</div>
+            <div class="text-slate-500 text-xs font-body">EdTech CEO · 🇬🇧 UK</div>
+          </div>
+          <div class="ml-auto">
+            <span class="text-xs text-violet-400 font-semibold bg-violet-500/10 px-2 py-1 rounded-full">Direct</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div class="glass glass-hover rounded-2xl p-7 flex flex-col reveal" style="transition-delay:0.2s">
+        <div class="flex items-center gap-1 mb-5">
+          <span class="star">★★★★★</span>
+        </div>
+        <p class="text-slate-400 font-body font-light text-sm leading-relaxed flex-1">"My e-commerce store redesign was delivered in 3 days and it's spectacular. Sales increased 40% in the first week. The mobile experience is flawless. Highly recommend!"</p>
+        <div class="mt-6 pt-5 border-t border-white/5 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-600 to-blue-600 flex items-center justify-center text-white font-bold text-sm font-display">AO</div>
+          <div>
+            <div class="text-white text-sm font-semibold">Amara O.</div>
+            <div class="text-slate-500 text-xs font-body">eCommerce Owner · 🇳🇬 Nigeria</div>
+          </div>
+          <div class="ml-auto">
+            <span class="text-xs text-blue-400 font-semibold bg-blue-500/10 px-2 py-1 rounded-full">Fiverr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust badges -->
+    <div class="mt-14 reveal">
+      <div class="divider mb-10"></div>
+      <div class="flex flex-wrap justify-center items-center gap-10 text-slate-600">
+        <div class="text-center">
+          <div class="font-display font-bold text-2xl text-white">50+</div>
+          <div class="text-xs font-body mt-1">Projects</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div class="text-center">
+          <div class="font-display font-bold text-2xl text-white">4.9★</div>
+          <div class="text-xs font-body mt-1">Avg Rating</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div class="text-center">
+          <div class="font-display font-bold text-2xl text-white">100%</div>
+          <div class="text-xs font-body mt-1">On-Time Delivery</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div class="text-center">
+          <div class="font-display font-bold text-2xl text-white">24h</div>
+          <div class="text-xs font-body mt-1">Avg Response</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact" class="relative py-28">
+  <div class="orb w-[500px] h-[500px] bg-blue-700 bottom-[-100px] right-[-100px] opacity-12"></div>
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-4 tracking-widest uppercase">
+        <div class="w-8 h-px bg-blue-500"></div>
+        Get In Touch
+        <div class="w-8 h-px bg-blue-500"></div>
+      </div>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-white">Let's Build <span class="grad-text">Together</span></h2>
+      <p class="text-slate-500 mt-4 font-body max-w-lg mx-auto">Have a project in mind? I'd love to hear about it. Drop me a message and I'll get back to you within 24 hours.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-10">
+      <!-- Info -->
+      <div class="lg:col-span-2 space-y-6 reveal">
+        <div class="glass rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center text-lg flex-shrink-0">📧</div>
+          <div>
+            <div class="text-slate-400 text-xs font-semibold mb-1 uppercase tracking-wider">Email</div>
+            <a href="mailto:hello@yourname.dev" class="text-white font-semibold text-sm hover:text-blue-400 transition-colors">hello@yourname.dev</a>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-violet-500/15 border border-violet-500/20 flex items-center justify-center text-lg flex-shrink-0">💬</div>
+          <div>
+            <div class="text-slate-400 text-xs font-semibold mb-1 uppercase tracking-wider">WhatsApp</div>
+            <a href="https://wa.me/2348000000000" class="text-white font-semibold text-sm hover:text-violet-400 transition-colors">+234 800 000 0000</a>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/20 flex items-center justify-center text-lg flex-shrink-0">🌐</div>
+          <div>
+            <div class="text-slate-400 text-xs font-semibold mb-1 uppercase tracking-wider">Fiverr</div>
+            <a href="#" class="text-white font-semibold text-sm hover:text-cyan-400 transition-colors">fiverr.com/yourprofile</a>
+          </div>
+        </div>
+        <!-- Social links -->
+        <div class="glass rounded-2xl p-6">
+          <div class="text-slate-400 text-xs font-semibold mb-4 uppercase tracking-wider">Follow Me</div>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-500/20 border border-white/10 hover:border-blue-500/30 flex items-center justify-center text-slate-400 hover:text-white transition-all text-sm">in</a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all text-sm">⬡</a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-400/20 border border-white/10 hover:border-blue-400/30 flex items-center justify-center text-slate-400 hover:text-white transition-all text-sm">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="lg:col-span-3 reveal">
+        <form class="glass rounded-2xl p-8 space-y-5" id="contactForm">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-slate-400 text-xs font-semibold mb-2 uppercase tracking-wider">Your Name</label>
+              <input type="text" placeholder="John Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm font-body focus:outline-none focus:border-blue-500/50 focus:bg-blue-500/5 transition-all duration-200" />
+            </div>
+            <div>
+              <label class="block text-slate-400 text-xs font-semibold mb-2 uppercase tracking-wider">Email Address</label>
+              <input type="email" placeholder="john@email.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm font-body focus:outline-none focus:border-blue-500/50 focus:bg-blue-500/5 transition-all duration-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold mb-2 uppercase tracking-wider">Service Needed</label>
+            <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-slate-300 text-sm font-body focus:outline-none focus:border-blue-500/50 transition-all duration-200 appearance-none cursor-pointer" style="background-color: rgba(255,255,255,0.05);">
+              <option value="" class="bg-slate-900">Select a service...</option>
+              <option value="landing" class="bg-slate-900">Landing Page</option>
+              <option value="dashboard" class="bg-slate-900">Web Dashboard</option>
+              <option value="ecommerce" class="bg-slate-900">E-commerce UI</option>
+              <option value="portfolio" class="bg-slate-900">Portfolio Site</option>
+              <option value="other" class="bg-slate-900">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold mb-2 uppercase tracking-wider">Budget Range</label>
+            <div class="flex flex-wrap gap-2">
+              <label class="cursor-pointer">
+                <input type="radio" name="budget" class="sr-only peer" value="50-100">
+                <span class="peer-checked:bg-blue-500/20 peer-checked:border-blue-500/50 peer-checked:text-blue-300 glass text-slate-400 text-xs px-3 py-2 rounded-lg border border-white/10 hover:border-white/20 transition-all select-none">$50–$100</span>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="budget" class="sr-only peer" value="100-300">
+                <span class="peer-checked:bg-blue-500/20 peer-checked:border-blue-500/50 peer-checked:text-blue-300 glass text-slate-400 text-xs px-3 py-2 rounded-lg border border-white/10 hover:border-white/20 transition-all select-none">$100–$300</span>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="budget" class="sr-only peer" value="300+">
+                <span class="peer-checked:bg-blue-500/20 peer-checked:border-blue-500/50 peer-checked:text-blue-300 glass text-slate-400 text-xs px-3 py-2 rounded-lg border border-white/10 hover:border-white/20 transition-all select-none">$300+</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold mb-2 uppercase tracking-wider">Project Details</label>
+            <textarea rows="4" placeholder="Tell me about your project, timeline, and any specific requirements..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm font-body focus:outline-none focus:border-blue-500/50 focus:bg-blue-500/5 transition-all duration-200 resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full text-white font-bold py-4 rounded-xl text-sm flex items-center justify-center gap-2">
+            <span id="btn-text">Send Message</span>
+            <svg id="btn-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          </button>
+          <div id="form-success" class="hidden text-center text-green-400 text-sm font-semibold py-2">
+            ✅ Message sent! I'll be in touch within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="relative border-t border-white/5 py-12">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <div class="font-display font-800 text-2xl mb-3">
+          <span class="grad-text">dev</span><span class="text-white">folio</span><span class="text-blue-500">.</span>
+        </div>
+        <p class="text-slate-500 text-sm font-body font-light leading-relaxed max-w-xs">Frontend developer building fast, beautiful, and conversion-focused web experiences. Based in Lagos, available worldwide.</p>
+        <div class="flex gap-3 mt-5">
+          <a href="#" class="w-9 h-9 rounded-lg glass hover:border-blue-500/30 flex items-center justify-center text-slate-500 hover:text-white transition-all text-xs">in</a>
+          <a href="#" class="w-9 h-9 rounded-lg glass flex items-center justify-center text-slate-500 hover:text-white transition-all text-xs">⬡</a>
+          <a href="#" class="w-9 h-9 rounded-lg glass flex items-center justify-center text-slate-500 hover:text-white transition-all text-xs">𝕏</a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-display font-semibold text-white text-sm mb-4">Navigation</h4>
+        <nav class="space-y-2.5">
+          <a href="#about" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">About</a>
+          <a href="#skills" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Skills</a>
+          <a href="#projects" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Projects</a>
+          <a href="#services" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Services</a>
+          <a href="#testimonials" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Reviews</a>
+        </nav>
+      </div>
+      <!-- Services -->
+      <div>
+        <h4 class="font-display font-semibold text-white text-sm mb-4">Services</h4>
+        <nav class="space-y-2.5">
+          <a href="#contact" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Landing Pages</a>
+          <a href="#contact" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Dashboards</a>
+          <a href="#contact" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">E-commerce UI</a>
+          <a href="#contact" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Portfolio Sites</a>
+          <a href="#contact" class="block text-slate-500 hover:text-slate-300 text-sm font-body transition-colors">Figma to Code</a>
+        </nav>
+      </div>
+    </div>
+    <div class="divider mb-6"></div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-600 text-xs font-body">
+      <span>© 2025 devfolio. Built with HTML, Tailwind CSS & ❤️</span>
+      <div class="flex items-center gap-1">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <span class="text-green-500">Available for work</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script>
+  // Mobile menu toggle
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  burger.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    burgerIcon.innerHTML = isOpen
+      ? '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>'
+      : '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>';
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      burgerIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.style.getPropertyValue('--reveal-delay') || '0s';
+        setTimeout(() => entry.target.classList.add('visible'), parseFloat(delay) * 1000);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // Navbar scroll effect
+  const navBg = document.getElementById('nav-bg');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navBg.style.background = 'rgba(5,7,9,0.92)';
+    } else {
+      navBg.style.background = '';
+    }
+  });
+
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+  const scrollSpy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-slate-400');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('text-white');
+            link.classList.remove('text-slate-400');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(s => scrollSpy.observe(s));
+
+  // Contact form
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const btnText = document.getElementById('btn-text');
+    const success = document.getElementById('form-success');
+    btnText.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btnText.textContent = 'Send Message';
+      btn.disabled = false;
+      success.classList.remove('hidden');
+      contactForm.reset();
+      setTimeout(() => success.classList.add('hidden'), 5000);
+    }, 1800);
+  });
+
+  // Skill bar animation on view
+  const skillBars = document.querySelectorAll('.skill-bar-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.3 });
+  skillBars.forEach(bar => {
+    bar.style.animationPlayState = 'paused';
+    barObserver.observe(bar);
+  });
+</script>
+</body>
+</html>
