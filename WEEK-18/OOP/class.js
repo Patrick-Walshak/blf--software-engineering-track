@@ -35,10 +35,23 @@ class Bank {
 
         if(!user) return "user not fount"
 
-        if(user.balance < amount) return "Insifficient balance"
+        if(user.balance > amount) return "Insifficient balance"
 
         user.balance -= amount
         return this.users
+    }
+}
+
+class Opay extends Bank {
+    constructor(name, address, type){
+        super(this.name, this.address, this.type)
+        console.log(`${name} bank is created`)
+    }
+
+    checkBalance(account){
+        let user = this.users.find(user => user.account == account)
+
+        return user.balance
     }
 }
 
@@ -60,3 +73,5 @@ console.log(opay.deposite("1111123455", 10000))
 
 // console.log(opay)
 // a dist keyowrd that basically references the proper or method of that particular back
+// super is a special keyword that ehlp to pass a value directly to the parent class
+// polymophism basically means 
