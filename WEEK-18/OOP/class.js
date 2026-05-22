@@ -12,20 +12,32 @@ class Bank {
 
     createAccount(name, age, address, balance, account){ //one methos
         this.users.push({
-            name,
-            age,
-            address,
-            balance,
+            name:name,
+            age:age,
+            address:address,
+            account:account,
+            balance:balance
         })
         console.log(this.users)
     }
 
     deposite(account, amount){
-        this.users.find(user => user.account == account)
+        let user = this.users.find(user => user.account == account)
 
         if(!this.users) return "user not fount"
 
-        this.users.balance += amount
+       user.balance += amount
+        console.log(this.users)
+    }
+
+    withdraw(account, amount){
+        let user = this.users.find(user => user.account == account)
+
+        if(!this.users) return "user not fount"
+
+        if(user.balance < amount) return "Insifficient balance"
+
+        user.balance -= amount
         console.log(this.users)
     }
 }
@@ -35,8 +47,12 @@ class Bank {
 // const gtb = new Bank("Gimini Trust Bank", "British", "Commercial") 
 const opay = new Bank("Opay bank", "Jos", "Commercial")
 
-opay.createAccount("Solex", 30, "Rayfield", 30000, 1111123455)
-opay.deposite(1111123455, 20000)
+opay.createAccount("Solex", 30, "Rayfield", 30000, "1111123455")
+opay.deposite("1111123455", 20000)
+
+console.log("Withdraw")
+
+opay.deposite("1111123455", 10000)
 
 
 console.log(opay)
