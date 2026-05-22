@@ -10,7 +10,7 @@ class Bank {
         this.type = type
     }
 
-    createAccount(name, age, address, balance, account){ //one methos
+    createAccount(name, age, address, balance, account){ //one method
         this.users.push({
             name:name,
             age:age,
@@ -24,21 +24,21 @@ class Bank {
     deposite(account, amount){
         let user = this.users.find(user => user.account == account)
 
-        if(!this.users) return "user not fount"
+        if(!user) return "user not fount"
 
        user.balance += amount
-        console.log(this.users)
+        return this.users
     }
 
     withdraw(account, amount){
         let user = this.users.find(user => user.account == account)
 
-        if(!this.users) return "user not fount"
+        if(!user) return "user not fount"
 
         if(user.balance < amount) return "Insifficient balance"
 
         user.balance -= amount
-        console.log(this.users)
+        return this.users
     }
 }
 
@@ -48,12 +48,15 @@ class Bank {
 const opay = new Bank("Opay bank", "Jos", "Commercial")
 
 opay.createAccount("Solex", 30, "Rayfield", 30000, "1111123455")
-opay.deposite("1111123455", 20000)
 
-console.log("Withdraw")
+console.log("Deposited 20,000")
 
-opay.deposite("1111123455", 10000)
+console.log(opay.deposite("1111123455", 20000))
+
+console.log("Withdraw 10,000")
+
+console.log(opay.deposite("1111123455", 10000))
 
 
-console.log(opay)
+// console.log(opay)
 // a dist keyowrd that basically references the proper or method of that particular back
