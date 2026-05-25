@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wallex | Premium Developer Portfolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body{
+      font-family:Poppins,sans-serif;
+      background: radial-gradient(circle at top,#0b0b10,#120a18);
+      color:white;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+
+    .glass{
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+    }
+
+    .glow{
+      box-shadow:0 0 25px rgba(159,100,150,0.4);
+    }
+
+    .gradient-text{
+      background:linear-gradient(90deg,#D391B0,#7B466A,#5D3C64);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .btn{
+      transition:0.3s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 30px rgba(159,100,150,0.5);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 glass px-6 py-4 flex justify-between items-center">
+  <h1 class="font-bold text-xl gradient-text">Wallex</h1>
+  <ul class="hidden md:flex gap-8 text-sm text-gray-300">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28">
+  <div class="grid md:grid-cols-2 gap-10 items-center max-w-6xl">
+
+    <!-- TEXT -->
+    <div data-aos="fade-right">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+        I Build
+        <span class="gradient-text">Modern Web Experiences</span>
+      </h1>
+
+      <p class="text-gray-400 mt-5">
+        Frontend Developer specializing in premium UI, animations, and interactive web experiences.
+      </p>
+
+      <div class="mt-6 flex gap-4">
+        <button class="btn px-6 py-3 rounded-full bg-gradient-to-r from-[#7B466A] to-[#9F6496]">Hire Me</button>
+        <button class="btn px-6 py-3 rounded-full border border-white/20">Download CV</button>
+      </div>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="flex justify-center" data-aos="fade-left">
+      <div class="glass p-6 glow">
+        <img src="/img/photo_2026-05-22_20-10-54.jpg" class="rounded-2xl w-72" alt="profile" />
+        <p class="text-center text-gray-400 mt-3">Wallex • Frontend Developer</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold gradient-text mb-10">About Me</h2>
+
+  <div class="grid md:grid-cols-2 gap-10">
+    <div class="glass p-6" data-aos="fade-up">
+      <p class="text-gray-300 leading-relaxed">
+        I am a passionate frontend developer focused on building clean, scalable and interactive user interfaces.
+        I specialize in Tailwind CSS, JavaScript and modern animation systems.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div class="glass p-5 text-center">
+        <h3 class="text-2xl font-bold">15+</h3>
+        <p class="text-gray-400">Projects</p>
+      </div>
+      <div class="glass p-5 text-center">
+        <h3 class="text-2xl font-bold">3+</h3>
+        <p class="text-gray-400">Years Learning</p>
+      </div>
+      <div class="glass p-5 text-center">
+        <h3 class="text-2xl font-bold">10+</h3>
+        <p class="text-gray-400">Clients</p>
+      </div>
+      <div class="glass p-5 text-center">
+        <h3 class="text-2xl font-bold">100%</h3>
+        <p class="text-gray-400">Dedication</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-24 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold gradient-text mb-10">Skills</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="glass p-5">
+      <p>HTML / CSS</p>
+      <div class="w-full bg-white/10 h-2 rounded mt-2">
+        <div class="h-2 bg-[#9F6496] w-[95%]"></div>
+      </div>
+    </div>
+
+    <div class="glass p-5">
+      <p>JavaScript</p>
+      <div class="w-full bg-white/10 h-2 rounded mt-2">
+        <div class="h-2 bg-[#7B466A] w-[85%]"></div>
+      </div>
+    </div>
+
+    <div class="glass p-5">
+      <p>Tailwind CSS</p>
+      <div class="w-full bg-white/10 h-2 rounded mt-2">
+        <div class="h-2 bg-[#D391B0] w-[90%]"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-24 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold gradient-text mb-10">Projects</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="glass p-5 hover:scale-105 transition">
+      <h3 class="font-bold">E-commerce UI</h3>
+      <p class="text-gray-400 text-sm">Modern shopping experience</p>
+    </div>
+
+    <div class="glass p-5 hover:scale-105 transition">
+      <h3 class="font-bold">Dashboard</h3>
+      <p class="text-gray-400 text-sm">Analytics system</p>
+    </div>
+
+    <div class="glass p-5 hover:scale-105 transition">
+      <h3 class="font-bold">Portfolio UI</h3>
+      <p class="text-gray-400 text-sm">Creative design system</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold gradient-text mb-10">Contact Me</h2>
+
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <!-- INFO -->
+    <div class="space-y-4">
+      <div class="glass p-5">📧 Email: hello@dev.com</div>
+      <div class="glass p-5">📱 WhatsApp: +234 xxx xxx</div>
+      <div class="glass p-5">🌍 Location: Nigeria</div>
+    </div>
+
+    <!-- FORM -->
+    <form class="glass p-6 space-y-4">
+      <input class="w-full p-3 bg-white/5 rounded" placeholder="Your Name" />
+      <input class="w-full p-3 bg-white/5 rounded" placeholder="Email" />
+      <textarea class="w-full p-3 bg-white/5 rounded" placeholder="Message"></textarea>
+      <button class="btn w-full py-3 rounded bg-gradient-to-r from-[#7B466A] to-[#9F6496]">
+        Send Message
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-10 text-gray-500">
+  © 2026 Wallex. Built with passion.
+</footer>
+
+<script>
+  AOS.init({ duration: 900 });
+</script>
+
+</body>
+</html>
