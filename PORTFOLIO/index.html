@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wallex | Premium Developer Portfolio</title>
-  <link rel="stylesheet" href="/src/output.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -140,20 +139,80 @@
 
 <!-- ABOUT -->
 <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl font-bold gradient-text mb-10">About Me</h2>
-  <div class="grid md:grid-cols-2 gap-10">
-    <div class="glass p-6" data-aos="fade-up">
-      <p class="text-gray-300">
-        Full Stack Developer specializing in frontend (Tailwind, JS, React concepts) and backend (Python, Node.js).
-        I create scalable systems and beautiful UI experiences.
-      </p>
+  <div class="grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- LEFT: Photo card stack -->
+    <div class="relative flex justify-center" data-aos="fade-right">
+      <!-- Back card -->
+      <div class="glass absolute w-72 h-80 top-4 left-6 rotate-3 opacity-60"></div>
+      <!-- Main card -->
+      <div class="glass relative w-72 z-10 p-5 flex flex-col items-center gap-3">
+        <!-- Stat badge -->
+        <div class="glass self-end px-4 py-2 rounded-xl text-sm">
+          <p class="text-[#D391B0] font-bold text-2xl">50+</p>
+          <p class="text-gray-400 text-xs">Satisfied clients<br>worldwide</p>
+          <p class="text-yellow-400 mt-1 text-xs">★★★★★</p>
+        </div>
+        <!-- Avatar placeholder -->
+        <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[#7B466A] to-[#9F6496] flex items-center justify-center text-4xl select-none"><img class="w-28 h-28 rounded-full" src="/img/photo_2026-05-22_20-10-54.jpg" alt=""></div>
+      </div>
+      <!-- Open to work badge -->
+      <div class="glass absolute bottom-0 left-0 px-4 py-3 rounded-2xl z-20">
+        <p class="text-green-400 font-semibold text-sm flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Open to work
+        </p>
+        <p class="text-gray-400 text-xs mt-1">Available for new<br>projects this month</p>
+      </div>
     </div>
-    <div class="grid grid-cols-2 gap-4">
-      <div class="glass p-5 text-center">Python</div>
-      <div class="glass p-5 text-center">JavaScript</div>
-      <div class="glass p-5 text-center">Tailwind</div>
-      <div class="glass p-5 text-center">Node.js</div>
+
+    <!-- RIGHT: Text content -->
+    <div data-aos="fade-left">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-0.5 bg-[#D391B0]"></div>
+        <p class="text-[#D391B0] text-sm font-semibold tracking-widest uppercase">About Me</p>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+        I turn complex<br>ideas into <span class="gradient-text">clean<br>code</span>
+      </h2>
+
+      <div class="space-y-4 text-gray-400 text-sm leading-relaxed mb-8">
+        <p>Hi, I'm a passionate Full Stack Developer specializing in crafting pixel-perfect, high-performance web interfaces. I work at the intersection of design and engineering, building experiences that not only look stunning but convert.</p>
+        <p>With 3+ years in the industry, I've delivered projects for startups, agencies, and direct clients — from landing pages to full SaaS dashboards. Every line of code I write is intentional, clean, and scalable.</p>
+        <p>When I'm not building for clients, I'm experimenting with new design systems, UI animations, and modern web technologies.</p>
+      </div>
+
+      <!-- Info grid -->
+      <div class="grid grid-cols-2 gap-3 mb-8">
+        <div class="glass p-4 rounded-xl">
+          <p class="text-[#D391B0] text-xs font-semibold mb-1">📍 Location</p>
+          <p class="text-white text-sm">Jos, Nigeria</p>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <p class="text-[#D391B0] text-xs font-semibold mb-1">💼 Experience</p>
+          <p class="text-white text-sm">2 Years</p>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <p class="text-[#D391B0] text-xs font-semibold mb-1">🎓 Education</p>
+          <p class="text-white text-sm">B.Sc. Computer Science</p>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <p class="text-[#D391B0] text-xs font-semibold mb-1">🌐 Languages</p>
+          <p class="text-white text-sm">English (Fluent)</p>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex gap-4 flex-wrap">
+        <button class="px-6 py-3 rounded-full bg-gradient-to-r from-[#7B466A] to-[#9F6496] font-semibold glow transition">Work With Me</button>
+        <button class="px-6 py-3 rounded-full border border-white/20 flex items-center gap-2 hover:border-white/40 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v4m0 0l-3-3m3 3l3-3M12 4v8"/></svg>
+          Download CV
+        </button>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -188,20 +247,154 @@
 
 <!-- CONTACT -->
 <section id="contact" class="py-24 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl font-bold gradient-text mb-10">Contact</h2>
-  <div class="grid md:grid-cols-2 gap-10">
-    <div class="space-y-4">
-      <div class="glass p-5">Email: hello@dev.com</div>
-      <div class="glass p-5">WhatsApp: +234 xxx</div>
+
+  <!-- Header -->
+  <div class="text-center mb-14" data-aos="fade-up">
+    <div class="flex items-center justify-center gap-3 mb-4">
+      <div class="w-10 h-0.5 bg-[#D391B0]"></div>
+      <p class="text-[#D391B0] text-xs font-semibold tracking-widest uppercase">Get In Touch</p>
+      <div class="w-10 h-0.5 bg-[#D391B0]"></div>
     </div>
-    <form class="glass p-6 space-y-4">
-      <input class="w-full p-3 bg-white/5 rounded" placeholder="Name" />
-      <input class="w-full p-3 bg-white/5 rounded" placeholder="Email" />
-      <textarea class="w-full p-3 bg-white/5 rounded" placeholder="Message"></textarea>
-      <button class="w-full py-3 rounded bg-gradient-to-r from-[#7B466A] to-[#9F6496] glow">Send</button>
-    </form>
+    <h2 class="text-4xl md:text-5xl font-bold">Let's Build <span class="gradient-text">Together</span></h2>
+    <p class="text-gray-400 mt-4 max-w-lg mx-auto text-sm">Have a project in mind? I'd love to hear about it. Drop me a message and I'll get back to you within 24 hours.</p>
+  </div>
+
+  <div class="grid md:grid-cols-[1fr_1.6fr] gap-6 items-start">
+
+    <!-- LEFT: Contact info -->
+    <div class="space-y-4" data-aos="fade-right">
+      <!-- Email -->
+      <div class="glass p-5 flex items-center gap-4 hover:border-[#D391B0]/30 transition">
+        <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">✉️</div>
+        <div>
+          <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Email</p>
+          <p class="text-white text-sm font-medium">walshakx@gmail.com</p>
+        </div>
+      </div>
+      <!-- WhatsApp -->
+      <div class="glass p-5 flex items-center gap-4 hover:border-[#D391B0]/30 transition">
+        <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">💬</div>
+        <div>
+          <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">WhatsApp</p>
+          <p class="text-white text-sm font-medium">+234 8136070069</p>
+        </div>
+      </div>
+      <!-- Fiverr -->
+      <div class="glass p-5 flex items-center gap-4 hover:border-[#D391B0]/30 transition">
+        <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">🌐</div>
+        <div>
+          <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Twitter</p>
+          <p class="text-white text-sm font-medium">https://x.com/wallex002/</p>
+        </div>
+      </div>
+      <!-- Social -->
+      <div class="glass p-5">
+        <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-4">Follow Me</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-sm font-bold">in</a>
+          <a href="#" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-sm">◎</a>
+          <a href="https://x.com/wallex002" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-sm font-bold">𝕏</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="glass p-7" data-aos="fade-left">
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Your Name</label>
+          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="Walshak" />
+        </div>
+        <div>
+          <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Email Address</label>
+          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="walshak@email.com" />
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Service Needed</label>
+        <select class="w-full p-3 bg-[#0f0a14] rounded-xl border border-white/10 text-gray-400 text-sm focus:outline-none focus:border-[#D391B0]/50 appearance-none">
+          <option value="">Select a service...</option>
+          <option>Landing Page</option>
+          <option>Full Stack Web App</option>
+          <option>E-commerce UI</option>
+          <option>Portfolio Site</option>
+          <option>Figma to Code</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Budget Range</label>
+        <div class="flex gap-3 flex-wrap" id="budgetBtns">
+          <button type="button" onclick="selectBudget(this)" class="budget-btn px-4 py-2 rounded-xl border border-white/15 text-sm text-gray-400 hover:border-[#D391B0]/50 transition">$50–$100</button>
+          <button type="button" onclick="selectBudget(this)" class="budget-btn px-4 py-2 rounded-xl border border-white/15 text-sm text-gray-400 hover:border-[#D391B0]/50 transition">$100–$300</button>
+          <button type="button" onclick="selectBudget(this)" class="budget-btn px-4 py-2 rounded-xl border border-white/15 text-sm text-gray-400 hover:border-[#D391B0]/50 transition">$300+</button>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Project Details</label>
+        <textarea rows="4" class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50 resize-none" placeholder="Tell me about your project, timeline, and any specific requirements..."></textarea>
+      </div>
+
+      <button class="w-full py-4 rounded-xl bg-gradient-to-r from-[#7B466A] to-[#9F6496] font-semibold text-white glow transition flex items-center justify-center gap-2">
+        Send Message
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+      </button>
+    </div>
+
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/8 mt-10">
+  <div class="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
+
+    <!-- Brand -->
+    <div>
+      <h2 class="text-xl font-bold mb-3"><span class="gradient-text">Wall</span><span class="text-white font-light">ex.</span></h2>
+      <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Full stack developer building fast, beautiful, and conversion-focused web experiences. Based in Lagos, available worldwide.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-gray-500 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-xs font-bold">in</a>
+        <a href="#" class="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-gray-500 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-xs">◎</a>
+        <a href="#" class="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-gray-500 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-xs font-bold">𝕏</a>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+      <h3 class="text-white text-sm font-semibold mb-5">Navigation</h3>
+      <ul class="space-y-3 text-sm text-gray-500">
+        <li><a href="#about" class="hover:text-[#D391B0] transition">About</a></li>
+        <li><a href="#skills" class="hover:text-[#D391B0] transition">Skills</a></li>
+        <li><a href="#projects" class="hover:text-[#D391B0] transition">Projects</a></li>
+        <li><a href="#contact" class="hover:text-[#D391B0] transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h3 class="text-white text-sm font-semibold mb-5">Services</h3>
+      <ul class="space-y-3 text-sm text-gray-500">
+        <li><a href="#" class="hover:text-[#D391B0] transition">Landing Pages</a></li>
+        <li><a href="#" class="hover:text-[#D391B0] transition">Dashboards</a></li>
+        <li><a href="#" class="hover:text-[#D391B0] transition">E-commerce UI</a></li>
+        <li><a href="#" class="hover:text-[#D391B0] transition">Portfolio Sites</a></li>
+        <li><a href="#" class="hover:text-[#D391B0] transition">Figma to Code</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/8 px-6 py-5 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-600">
+    <p>© 2025 Wallex. Built with HTML, Tailwind CSS &amp;</p>
+    <p class="flex items-center gap-2 text-green-400">
+      <span class="w-2 h-2 rounded-full bg-green-400 inline-block animate-pulse"></span>
+      Available for work
+    </p>
+  </div>
+</footer>
 
 <script>
 /* ══════════════════════════════════════════
@@ -348,6 +541,16 @@
   setTimeout(shoot, 1200);
 })();
 
+
+/* Budget pill toggle */
+function selectBudget(el){
+  document.querySelectorAll('.budget-btn').forEach(b=>{
+    b.style.borderColor='';b.style.color='';b.style.background='';
+  });
+  el.style.borderColor='#D391B0';
+  el.style.color='#D391B0';
+  el.style.background='rgba(211,145,176,0.1)';
+}
 
 /* ══ Existing: AOS + cursor + mobile menu ══ */
 AOS.init({ duration:900 });
