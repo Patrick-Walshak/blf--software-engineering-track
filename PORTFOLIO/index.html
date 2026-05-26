@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x:hidden;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +17,7 @@
       font-family:Poppins,sans-serif;
       background: radial-gradient(circle at top,#0b0b10,#120a18);
       overflow-x:hidden;
+      max-width:100vw;
       scroll-behavior:smooth;
       color:white;
     }
@@ -92,48 +93,61 @@
 <div class="cursor" id="cursor"></div>
 
 <!-- NAVBAR -->
-<nav class="fixed top-0 w-full z-50 glass flex justify-between items-center px-6 py-4">
-  <h1 class="gradient-text font-bold text-xl">Wallex</h1>
-  <ul id="menu" class="hidden md:flex gap-8 text-sm text-gray-300">
-    <li><a class="navlink" href="#home">Home</a></li>
-    <li><a class="navlink" href="#about">About</a></li>
-    <li><a class="navlink" href="#skills">Skills</a></li>
-    <li><a class="navlink" href="#projects">Projects</a></li>
-    <li><a class="navlink" href="#contact">Contact</a></li>
+<nav style="border-radius:0;border-left:none;border-right:none;" class="fixed top-0 left-0 right-0 w-full z-50 glass flex justify-between items-center px-4 py-3 overflow-hidden">
+  <h1 class="gradient-text font-bold text-lg shrink-0 leading-none">Wallex</h1>
+
+  <ul class="hidden md:flex gap-6 text-sm text-gray-300">
+    <li><a class="navlink hover:text-white transition" href="#home">Home</a></li>
+    <li><a class="navlink hover:text-white transition" href="#about">About</a></li>
+    <li><a class="navlink hover:text-white transition" href="#skills">Skills</a></li>
+    <li><a class="navlink hover:text-white transition" href="#projects">Projects</a></li>
+    <li><a class="navlink hover:text-white transition" href="#contact">Contact</a></li>
   </ul>
-  <button id="toggle" class="md:hidden text-2xl">☰</button>
+
+  <button id="toggle" aria-label="Menu"
+    class="md:hidden shrink-0 flex flex-col justify-center items-center gap-[5px] w-9 h-9 rounded-lg border border-white/10 bg-white/5">
+    <span class="block w-5 h-[2px] bg-white rounded"></span>
+    <span class="block w-5 h-[2px] bg-white rounded"></span>
+    <span class="block w-3 h-[2px] bg-white rounded self-start ml-1"></span>
+  </button>
 </nav>
 
 <!-- MOBILE MENU -->
-<div id="mobile" class="hidden fixed top-16 left-0 w-full glass p-6 mobile-menu z-40">
-  <a href="#home" class="block py-2">Home</a>
-  <a href="#about" class="block py-2">About</a>
-  <a href="#skills" class="block py-2">Skills</a>
-  <a href="#projects" class="block py-2">Projects</a>
-  <a href="#contact" class="block py-2">Contact</a>
+<div id="mobile" class="hidden fixed left-0 right-0 w-full z-40"
+  style="top:52px;background:rgba(11,8,18,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="flex flex-col px-4 py-3 gap-1">
+    <a href="#home"     onclick="closeMobile()" class="py-3 px-3 rounded-xl text-sm text-gray-300 hover:bg-white/5 hover:text-white transition block">Home</a>
+    <a href="#about"    onclick="closeMobile()" class="py-3 px-3 rounded-xl text-sm text-gray-300 hover:bg-white/5 hover:text-white transition block">About</a>
+    <a href="#skills"   onclick="closeMobile()" class="py-3 px-3 rounded-xl text-sm text-gray-300 hover:bg-white/5 hover:text-white transition block">Skills</a>
+    <a href="#projects" onclick="closeMobile()" class="py-3 px-3 rounded-xl text-sm text-gray-300 hover:bg-white/5 hover:text-white transition block">Projects</a>
+    <a href="#contact"  onclick="closeMobile()" class="py-3 px-3 rounded-xl text-sm text-gray-300 hover:bg-white/5 hover:text-white transition block">Contact</a>
+  </div>
 </div>
 
 <!-- HERO -->
-<section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28">
-  <div class="grid md:grid-cols-2 gap-10 items-center max-w-6xl">
-    <div data-aos="fade-right">
-      <p class="text-gray-400">Hi, I'm</p>
-      <h1 class="text-5xl md:text-7xl font-bold">
+<section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20 pb-10 w-full overflow-hidden">
+  <div class="grid md:grid-cols-2 gap-10 items-center w-full max-w-6xl">
+
+    <div class="text-center md:text-left" data-aos="fade-right">
+      <p class="text-gray-400 text-sm mb-2">Hi, I'm</p>
+      <h1 class="font-bold leading-tight" style="font-size:clamp(2rem,9vw,4.5rem);">
         Walsh <span class="gradient-text">Full Stack Dev</span>
       </h1>
-      <p class="mt-5 text-gray-400">
+      <p class="mt-4 text-gray-400 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
         I build modern web apps with clean UI, animations, and scalable backend systems.
       </p>
-      <div class="mt-6 flex gap-4">
-        <button class="px-6 py-3 rounded-full bg-gradient-to-r from-[#7B466A] to-[#9F6496] glow transition">Hire Me</button>
-        <button class="px-6 py-3 rounded-full border border-white/20">Download CV</button>
+      <div class="mt-6 flex gap-3 justify-center md:justify-start flex-wrap">
+        <button class="px-5 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-[#7B466A] to-[#9F6496] glow transition">Hire Me</button>
+        <button class="px-5 py-3 rounded-full text-sm border border-white/20 hover:border-white/40 transition">Download CV</button>
       </div>
     </div>
-    <div class="flex justify-center" data-aos="fade-left">
+
+    <div class="hidden md:flex justify-center" data-aos="fade-left">
       <div class="glass p-6">
         <img src="/img/photo_2026-05-22_20-10-54.jpg" class="w-72 rounded-2xl" />
       </div>
     </div>
+
   </div>
 </section>
 
@@ -154,7 +168,8 @@
           <p class="text-yellow-400 mt-1 text-xs">★★★★★</p>
         </div>
         <!-- Avatar placeholder -->
-        <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[#7B466A] to-[#9F6496] flex items-center justify-center text-4xl select-none"><img class="w-28 h-28 rounded-full" src="/img/photo_2026-05-22_20-10-54.jpg" alt=""></div>
+        <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[#7B466A] to-[#9F6496] flex items-center justify-center text-4xl select-none">👨‍💻</div>
+        <p class="text-gray-500 text-xs">Replace with your photo</p>
       </div>
       <!-- Open to work badge -->
       <div class="glass absolute bottom-0 left-0 px-4 py-3 rounded-2xl z-20">
@@ -187,11 +202,11 @@
       <div class="grid grid-cols-2 gap-3 mb-8">
         <div class="glass p-4 rounded-xl">
           <p class="text-[#D391B0] text-xs font-semibold mb-1">📍 Location</p>
-          <p class="text-white text-sm">Jos, Nigeria</p>
+          <p class="text-white text-sm">Lagos, Nigeria</p>
         </div>
         <div class="glass p-4 rounded-xl">
           <p class="text-[#D391B0] text-xs font-semibold mb-1">💼 Experience</p>
-          <p class="text-white text-sm">2 Years</p>
+          <p class="text-white text-sm">3+ Years</p>
         </div>
         <div class="glass p-4 rounded-xl">
           <p class="text-[#D391B0] text-xs font-semibold mb-1">🎓 Education</p>
@@ -268,7 +283,7 @@
         <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">✉️</div>
         <div>
           <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Email</p>
-          <p class="text-white text-sm font-medium">walshakx@gmail.com</p>
+          <p class="text-white text-sm font-medium">hello@yourname.dev</p>
         </div>
       </div>
       <!-- WhatsApp -->
@@ -276,15 +291,15 @@
         <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">💬</div>
         <div>
           <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">WhatsApp</p>
-          <p class="text-white text-sm font-medium">+234 8136070069</p>
+          <p class="text-white text-sm font-medium">+234 800 000 0000</p>
         </div>
       </div>
       <!-- Fiverr -->
       <div class="glass p-5 flex items-center gap-4 hover:border-[#D391B0]/30 transition">
         <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">🌐</div>
         <div>
-          <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Twitter</p>
-          <p class="text-white text-sm font-medium">https://x.com/wallex002/</p>
+          <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Fiverr</p>
+          <p class="text-white text-sm font-medium">fiverr.com/yourprofile</p>
         </div>
       </div>
       <!-- Social -->
@@ -293,7 +308,7 @@
         <div class="flex gap-3">
           <a href="#" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-sm font-bold">in</a>
           <a href="#" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-sm">◎</a>
-          <a href="https://x.com/wallex002" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-sm font-bold">𝕏</a>
+          <a href="#" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#D391B0]/50 hover:text-[#D391B0] transition text-sm font-bold">𝕏</a>
         </div>
       </div>
     </div>
@@ -303,11 +318,11 @@
       <div class="grid grid-cols-2 gap-4 mb-4">
         <div>
           <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Your Name</label>
-          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="Walshak" />
+          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="John Doe" />
         </div>
         <div>
           <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Email Address</label>
-          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="walshak@email.com" />
+          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="john@email.com" />
         </div>
       </div>
 
@@ -388,7 +403,7 @@
 
   <!-- Bottom bar -->
   <div class="border-t border-white/8 px-6 py-5 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-600">
-    <p>© 2025 Wallex. Built with HTML, Tailwind CSS &amp;</p>
+    <p>© 2025 Wallex. Built with HTML, Tailwind CSS &amp; ❤️</p>
     <p class="flex items-center gap-2 text-green-400">
       <span class="w-2 h-2 rounded-full bg-green-400 inline-block animate-pulse"></span>
       Available for work
@@ -561,9 +576,9 @@ document.addEventListener('mousemove', e=>{
   cursor.style.top  = e.clientY+'px';
 });
 
-document.getElementById('toggle').onclick = ()=>{
-  document.getElementById('mobile').classList.toggle('hidden');
-};
+const mobileMenu = document.getElementById('mobile');
+document.getElementById('toggle').onclick = ()=> mobileMenu.classList.toggle('hidden');
+function closeMobile(){ mobileMenu.classList.add('hidden'); }
 </script>
 </body>
 </html>
