@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wallex | Premium Developer Portfolio</title>
+  <link rel="stylesheet" href="/src/output.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -93,7 +94,7 @@
 <div class="cursor" id="cursor"></div>
 
 <!-- NAVBAR -->
-<nav style="border-radius:0;border-left:none;border-right:none;" class="fixed top-0 left-0 right-0 w-full z-50 glass flex justify-between items-center px-4 py-3 overflow-hidden">
+<nav style="border-radius:0;border-left:none;border-right:none; " class="fixed top-0 left-0 right-0 w-full z-50 glass flex justify-between items-center px-4 py-3 overflow-hidden">
   <h1 class="gradient-text font-bold text-lg shrink-0 leading-none">Wallex</h1>
 
   <ul class="hidden md:flex gap-6 text-sm text-gray-300">
@@ -114,7 +115,7 @@
 
 <!-- MOBILE MENU -->
 <div id="mobile" class="hidden fixed left-0 right-0 w-full z-40"
-  style="top:52px;background:rgba(11,8,18,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.07);">
+  style="top:52px;backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.07);">
   <div class="flex flex-col px-4 py-3 gap-1">
     <a href="#home"     onclick="closeMobile()" class="py-3 px-3 rounded-xl text-sm text-gray-300 hover:bg-white/5 hover:text-white transition block">Home</a>
     <a href="#about"    onclick="closeMobile()" class="py-3 px-3 rounded-xl text-sm text-gray-300 hover:bg-white/5 hover:text-white transition block">About</a>
@@ -131,7 +132,7 @@
     <div class="text-center md:text-left" data-aos="fade-right">
       <p class="text-gray-400 text-sm mb-2">Hi, I'm</p>
       <h1 class="font-bold leading-tight" style="font-size:clamp(2rem,9vw,4.5rem);">
-        Walsh <span class="gradient-text">Full Stack Dev</span>
+        Walshak, A <span class="gradient-text">Full Stack Dev</span>
       </h1>
       <p class="mt-4 text-gray-400 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
         I build modern web apps with clean UI, animations, and scalable backend systems.
@@ -142,7 +143,7 @@
       </div>
     </div>
 
-    <div class="hidden md:flex justify-center" data-aos="fade-left">
+    <div class=" md:flex justify-center" data-aos="fade-left">
       <div class="glass p-6">
         <img src="/img/photo_2026-05-22_20-10-54.jpg" class="w-72 rounded-2xl" />
       </div>
@@ -168,8 +169,7 @@
           <p class="text-yellow-400 mt-1 text-xs">★★★★★</p>
         </div>
         <!-- Avatar placeholder -->
-        <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[#7B466A] to-[#9F6496] flex items-center justify-center text-4xl select-none">👨‍💻</div>
-        <p class="text-gray-500 text-xs">Replace with your photo</p>
+        <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[#7B466A] to-[#9F6496] flex items-center justify-center text-4xl select-none"><img class="w-28 h-28 rounded-full" src="img/photo_2026-05-22_20-10-54.jpg" alt=""></div>
       </div>
       <!-- Open to work badge -->
       <div class="glass absolute bottom-0 left-0 px-4 py-3 rounded-2xl z-20">
@@ -202,11 +202,11 @@
       <div class="grid grid-cols-2 gap-3 mb-8">
         <div class="glass p-4 rounded-xl">
           <p class="text-[#D391B0] text-xs font-semibold mb-1">📍 Location</p>
-          <p class="text-white text-sm">Lagos, Nigeria</p>
+          <p class="text-white text-sm">Jos, Nigeria</p>
         </div>
         <div class="glass p-4 rounded-xl">
           <p class="text-[#D391B0] text-xs font-semibold mb-1">💼 Experience</p>
-          <p class="text-white text-sm">3+ Years</p>
+          <p class="text-white text-sm">2 Years</p>
         </div>
         <div class="glass p-4 rounded-xl">
           <p class="text-[#D391B0] text-xs font-semibold mb-1">🎓 Education</p>
@@ -283,7 +283,7 @@
         <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">✉️</div>
         <div>
           <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Email</p>
-          <p class="text-white text-sm font-medium">hello@yourname.dev</p>
+          <p class="text-white text-sm font-medium">patrickwalshak1@gmail.com</p>
         </div>
       </div>
       <!-- WhatsApp -->
@@ -291,15 +291,15 @@
         <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">💬</div>
         <div>
           <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">WhatsApp</p>
-          <p class="text-white text-sm font-medium">+234 800 000 0000</p>
+          <p class="text-white text-sm font-medium">+234 8136070069</p>
         </div>
       </div>
       <!-- Fiverr -->
       <div class="glass p-5 flex items-center gap-4 hover:border-[#D391B0]/30 transition">
         <div class="w-11 h-11 rounded-xl bg-[#D391B0]/15 flex items-center justify-center text-lg shrink-0">🌐</div>
         <div>
-          <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Fiverr</p>
-          <p class="text-white text-sm font-medium">fiverr.com/yourprofile</p>
+          <p class="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-0.5">Twitter</p>
+          <p class="text-white text-sm font-medium">twitter//.com</p>
         </div>
       </div>
       <!-- Social -->
@@ -318,11 +318,11 @@
       <div class="grid grid-cols-2 gap-4 mb-4">
         <div>
           <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Your Name</label>
-          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="John Doe" />
+          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="Walshak" />
         </div>
         <div>
           <label class="text-gray-500 text-xs font-semibold tracking-widest uppercase block mb-2">Email Address</label>
-          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="john@email.com" />
+          <input class="w-full p-3 bg-white/5 rounded-xl border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#D391B0]/50" placeholder="walshak@email.com" />
         </div>
       </div>
 
@@ -403,7 +403,7 @@
 
   <!-- Bottom bar -->
   <div class="border-t border-white/8 px-6 py-5 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-600">
-    <p>© 2025 Wallex. Built with HTML, Tailwind CSS &amp; ❤️</p>
+    <p>© 2025 Wallex. Built with HTML, Tailwind CSS &amp;</p>
     <p class="flex items-center gap-2 text-green-400">
       <span class="w-2 h-2 rounded-full bg-green-400 inline-block animate-pulse"></span>
       Available for work
