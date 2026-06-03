@@ -3,7 +3,7 @@ import React from 'react'
 const nav = () => {
   return (
     <nav>
-      <div className="flex justify-between mt-7 items-center mx-44">
+      <div className="flex justify-between mt-7 items-center mx-80">
         <div>
           <img src="src/assets/Frame 9.png" alt="" />
         </div>

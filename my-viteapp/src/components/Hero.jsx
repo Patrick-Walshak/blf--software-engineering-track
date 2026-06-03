@@ -3,7 +3,7 @@ import React from 'react'
 function Hero() {
   return (
     <section>
-      <div className="flex justify-between items-center mt-20 mx-44">
+      <div className="flex justify-between items-center mt-20 mx-80">
         <div>
             <div>
                 <p className="text-5xl font-bold">Nvigating the<br></br> digital landscape<br></br> for success</p>
@@ -22,7 +22,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="flex justify-around mx-28 mt-20">
+      <div className="flex justify-around mx-80 mt-20">
         <img src="src/assets/Company logo (1).png" alt="" />
         <img src="src/assets/Company logo (2).png" alt="" />
         <img src="src/assets/Company logo (3).png" alt="" />

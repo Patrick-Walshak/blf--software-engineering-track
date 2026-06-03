@@ -3,7 +3,7 @@ import React from 'react'
 function Carts() {
   return (
     <section>
-        <div className="flex gap-6 mt-44 mx-44">
+        <div className="flex gap-6 mt-44 mx-80">
             <div className="text-2xl w-24 rounded-lg h-9 flex justify-center items-center bg-[#b9ff66]">
                 <p className="">Services</p>
             </div>
@@ -29,8 +29,22 @@ function Carts() {
                 <img src="src/assets/Card (9).png" alt="" />
             </div>
 
-            <div className="mx-80 mt-16">
-                <img src="src/assets/CTA block.png" alt="" />
+            <div className="w-[1300px] h-[370px] bg-[#f3f3f3] rounded-xl flex justify-center mx-auto mt-16">
+                <div className="flex items-center gap-44">
+                    <div>
+                        <p className="text-2xl font-medium">Let make thing happen</p>
+
+                        <p>Contact us today to learn more about how our digital<br></br> marketing services can help your business grow and<br></br> succeed online.</p>
+
+                        <div>
+                            <button>Get your free proposal</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="src/assets/Frame 19.png" alt="" />
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -45,8 +59,20 @@ function Carts() {
             </div>
         </div>
 
-        <div className="mx-80 mt-10">
-            <img src="src/assets/Case studies block.png" alt="" />
+        <div className="w-[1300px] h-[300px] bg-[#191a23] text-white rounded-xl flex justify-center mx-auto mt-28">
+            <div className="flex justify-center items-center mt-10 gap-16">
+                <div>
+                    <p>Lorem ipsum dolor sit, amet consectetur<br></br> adipisicing elit. Dignissimos aperiam<br></br> aspernatur illo dolores pariatur vitae enim<br></br> iste cupiditate, vero omnis molestiae atque eos<br></br> inventore ipsa qui quae numquam nobis distinctio.</p>
+                </div>
+
+                <div>
+                    <p>Lorem ipsum dolor sit, amet consectetur<br></br> adipisicing elit. Dignissimos aperiam<br></br> aspernatur illo dolores pariatur vitae enim<br></br> iste cupiditate, vero omnis molestiae atque eos<br></br> inventore ipsa qui quae numquam nobis distinctio.</p>
+                </div>
+
+                <div>
+                    <p>Lorem ipsum dolor sit, amet consectetur<br></br> adipisicing elit. Dignissimos aperiam<br></br> aspernatur illo dolores pariatur vitae enim<br></br> iste cupiditate, vero omnis molestiae atque eos<br></br> inventore ipsa qui quae numquam nobis distinctio.</p>
+                </div>
+            </div>
         </div>
 
         <div className="flex gap-6 mt-44 mx-80">
@@ -83,11 +109,7 @@ function Carts() {
             </div>
         </div>
 
-        <footer>
-            <div className="mt-10">
-                <img className="w-full h-130" src="src/assets/Footer.png" alt="" />
-            </div>
-        </footer>
+       
     </section>
     
     
