@@ -1,3 +1,5 @@
 @import "tailwindcss";
 
-/* a createroot is a perremeter that taks in a funtion */
+html {
+  scroll-behavior: smooth;
+}

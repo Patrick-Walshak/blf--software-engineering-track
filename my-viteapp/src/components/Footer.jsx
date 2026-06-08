@@ -13,9 +13,9 @@ function Footer() {
                 <div className="flex gap-20 items-center">
                     <div className="flex gap-10 list-none">
                         <li>About Us</li>
-                        <li>Services</li>
+                        <li>Services</li> 
                         <li>Use Cases</li>
-                        <li>Pricing</li>
+                        <li>Pricing</li>        
                         <li>Blog</li>
                     </div>
 
@@ -41,7 +41,7 @@ function Footer() {
                 <p>Monnstone City, Stardus state 1234B</p>
             </div>
 
-            <div className="w-[500px] h-[150px] bg-[#292a32]">
+            <div className="w-[500px] h-[150px] bg-[#292a32] rounded-2xl">
                 <div className="flex justify-center items-center mt-10 gap-10">
                     <div className="w-52 h-16 rounded-2xl border text-white flex justify-center border-white">
                         <input className="pl-12" type="text" placeholder="Email"/>
@@ -53,7 +53,7 @@ function Footer() {
             </div>
         </div>
 
-        <div className=""></div>
+        <div className="w-[]"></div>
 
         <div>
             <p>© 2023 Positivus. All Rights Reserved.  Privacy Policy</p>
@@ -64,3 +64,4 @@ function Footer() {
 }
 
 export default Footer
+

@@ -3,7 +3,7 @@ import React from 'react'
 function Hero() {
   return (
     <section>
-      <div className="flex justify-between items-center mt-20 mx-80">
+      <div id="home" className="flex justify-between items-center mt-34 mx-80">
         <div>
             <div>
                 <p className="text-5xl font-bold">Nvigating the<br></br> digital landscape<br></br> for success</p>
