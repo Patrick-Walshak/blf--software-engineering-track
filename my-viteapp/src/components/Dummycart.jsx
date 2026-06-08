@@ -5,7 +5,7 @@ function Dummycart() {
   const [users, setUsers] = useState([]);
   const [showTeam, setShowTeam] = useState(true);
      useEffect(() => {
-      fetch("https://randomuser.me/api/?results=6")
+      fetch("https://randomuser.me/api/?results=6") 
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
