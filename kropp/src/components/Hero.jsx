@@ -2,7 +2,7 @@ import React from 'react'
 
 function Hero() {
   return (
-    <section className="min-h-screen bg-[#131619] text-white">
+    <section className=" bg-[#131619] text-white">
       <div className="flex mt-52 ml-38">
         <div>
             <img src="public/images/h1-rev-icon-1.png.png" alt="" />
