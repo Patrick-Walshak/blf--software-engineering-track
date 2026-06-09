@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-     <div className="top-0 left-0 w-full bg-black">
+     <div className="top-0 left-0 w-full bg-[#131619]">
       <Nav />
       <Hero />
     </div>

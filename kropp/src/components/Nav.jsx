@@ -3,7 +3,7 @@ import React from 'react'
 function Nav() {
   return (
     <section>
-        <div className="flex justify-between items-center mx-14">
+        <div className="flex justify-between items-center mx-28">
             <div className="mt-5">
                 <img src="public/images/header-logo-kropp.png.png" alt="" />
             </div>
@@ -22,6 +22,7 @@ function Nav() {
                 </div>
                 <div>
                     <img src="public/images/Group (3) (Copy).png" alt="" />
+                    
                 </div>
             </div>
         </div>
