@@ -5,6 +5,9 @@ import Blog from './components/Blog';
 import Elements from './components/Elements';
 import Contact from './components/Contact';
 import Locations from './components/Locations';
+import Gym from './components/Gym';
+import Bim from './components/Bim';
+import Footer from './components/Footer';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +22,9 @@ function App() {
     <Elements />
     <Contact />
     <Locations />
+    <Gym />
+    <Bim />
+    <Footer />
     </>
   )
 }
