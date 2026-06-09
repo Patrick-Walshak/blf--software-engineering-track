@@ -1,3 +1,4 @@
+// How does JavaScript know that the API has finished sending back the data
 const cityInput = document.getElementById("cityInput")
 const searchBtn = document.getElementById("searchBtn")
 const temperature = document.getElementById("temperature")

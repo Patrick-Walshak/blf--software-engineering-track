@@ -43,10 +43,17 @@ function buyfruit(name, qty){
     return
   }
 
-  if (fruit.stock < gty){
+  if (fruit.stock < qty){
     console.log(`Qauntity required fro ${name} is not available`)
     return
   }
 }
+
+function calculateTotal(price, qty){
+    return price * qty
+}
+let total = calculateTotal(200, 5)
+console.log(total)
+
 console.log("Mango", 10)
 

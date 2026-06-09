@@ -1,57 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
 </head>
-<body>
-    <h1>Camera</h1>
-    <p id="isOnline">Checking internet connection</p>
 
-    <div>
-        <video id="camerafeed" autoplay></video>
+<body style="background-color: rgba(0, 0, 255, 0.486);">
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="width: 1000px; height: -600px; border:solid black;">
+            <h1>Camera</h1>
+            <p id="isOnLine">Checking internet connectivity</p>
 
-        <div>
-            <button id="capture">Say Cheese</button>
+            <div>
+
+                <video id="camerafeed" autoplay width="300" height="300"></video>
+
+                <div><button id="capture">Say Cheese</button></div>
+
+                <canvas id="image"></canvas>
+
+            </div>
         </div>
-
-        <div id="image"></div>
     </div>
-    <script>
 
+    <script>
         let camerafeed = document.querySelector("#camerafeed")
-        let capture = document.querySelector("#capture")
         let canvas = document.querySelector("#image")
 
-        navigator.MediaDevices.getUserMedia({
+        navigator.mediaDevices.getUserMedia({
             video: true,
-            Audio:true
+            audio: true
         }).then((stream) => {
             console.log(stream)
-            
+            camerafeed.srcObject = stream
         })
 
-        capture.addEventListener("click", () => {
+        let capture = document.querySelector("#capture")
+
+        capture.addEventListener('click', () => {
             let ctx = canvas.getContext("2d")
 
-            canvas.width = 300
-            canvas.height = 300
+            canvas.width = camerafeed.videoWidth
+            canvas.height = camerafeed.videoHeight
 
             ctx.drawImage(camerafeed, 0, 0)
         })
 
-        let isOnline = document.querySelector("#isOnline") 
+        let isOnline = document.querySelector("#isOnLine")
 
-            setInterval(() => {
-                if(navigator.onLine){
-                    isOnline.innerHTML = "Is connected"
-                }else{
-                    isOnline.innerHTML = "Is disconnected"
-                }
-            }, 1000);
-        
+        setInterval(() => {
+            if (navigator.onLine) {
+                isOnline.innerText = "User is connected"
+            } else {
+                isOnline.innerText = "User is disconnected"
+            }
+        }, 1000)
     </script>
 </body>
-</html>
 
+</html>

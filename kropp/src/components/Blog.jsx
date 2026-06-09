@@ -22,7 +22,7 @@ function Blog() {
 
         </div>
 
-        <div className="bg-[#131619] h-[590px] mt-[-75px]">
+        <div className="bg-[#131619] h-[590px] mt-[-75px] relative z-10">
             <div className="flex justify-center gap-62 items-center">
                 <div className="mt-[-50px]">
                     <img src="public/images/h1-img-2.jpg.png" alt="" />

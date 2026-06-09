@@ -41,5 +41,4 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [];
       renderNotes();
     }
 
-    // Initial render
     renderNotes();
