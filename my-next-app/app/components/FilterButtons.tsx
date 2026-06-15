@@ -1,18 +1,19 @@
 "use client";
 
-import { useState } from "react";
+type Props = {
+  active: string;
+  onFilter: (filter: string) => void;
+};
 
 const filters = ["All", "Active", "Done"];
 
-const FilterButtons = () => {
-  const [active, setActive] = useState("All");
-
+const FilterButtons = ({ active, onFilter }: Props) => {
   return (
     <div className="flex gap-2 mt-3">
       {filters.map((filter) => (
         <button
           key={filter}
-          onClick={() => setActive(filter)}
+          onClick={() => onFilter(filter)}
           className={`px-4 py-1 rounded-full text-sm border transition-all
             ${active === filter
               ? "bg-violet-600 border-violet-600 text-white"

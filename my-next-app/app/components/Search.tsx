@@ -1,10 +1,11 @@
-"use client";  // 👈 add this line at the top
+"use client";
 
-import { useState } from "react";
+type Props = {
+  query: string;
+  onSearch: (value: string) => void;
+};
 
-const Search = () => {
-  const [query, setQuery] = useState("");
-
+const Search = ({ query, onSearch }: Props) => {
   return (
     <div className="flex items-center gap-2 bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2 mt-4">
       <svg className="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -13,7 +14,7 @@ const Search = () => {
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => onSearch(e.target.value)}
         placeholder="Search tasks..."
         className="bg-transparent text-sm text-white placeholder-zinc-500 outline-none w-full"
       />

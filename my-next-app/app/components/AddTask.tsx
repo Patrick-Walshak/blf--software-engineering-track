@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 
 type Props = {
@@ -10,7 +9,7 @@ const AddTask = ({ onAdd }: Props) => {
   const [input, setInput] = useState("");
 
   const handleAdd = () => {
-    if (input.trim() === "") return; // don't add empty tasks
+    if (input.trim() === "") return; 
     onAdd(input.trim());
     setInput(""); // clear input after adding
   };
