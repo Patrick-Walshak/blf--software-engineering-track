@@ -5,9 +5,7 @@
 //param
 //reques.body
 const express = require("express")
-const express = require("express");
-const swaggerUi = require("swagger-ui-express");
-const swaggerJsDoc = require("swagger-jsdoc");
+
 
 const app = express();
 
@@ -29,7 +27,7 @@ app.post("/login", (req, res) => {
     }
 
     if(password != userPass) {
-        res.status(401).json({message: "Invalid email!"})
+        res.status(401).json({message: "Invalid password!"})
     }
 
     return res.json({message: "Login Successfull"})

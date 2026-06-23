@@ -1,9 +1,9 @@
 {
   "name": "live-intern",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "node main.js"
+    "dev": "node server.js"
   },
   "keywords": [],
   "author": "",
