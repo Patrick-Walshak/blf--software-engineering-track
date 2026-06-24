@@ -1,4 +1,4 @@
-//Define module'
+//Define module'    
 // how to make are server rister for a change 
 // npm i nodemon is use to listen for file changes 
 //querry
@@ -41,11 +41,11 @@
 
 
 // when someone make a request  u will check is the the email exist and password exist define three user  and make a login endpoint 
-
+//Create an Express.js server with a login endpoint that checks user credentials.
 
 const express = require("express");
 
-const app = express()
+const app = express() //created and instance of express
 
 
 app.use(express.json());
@@ -54,8 +54,8 @@ app.use(express.json());
 const users = [
     {
         name: "wallex",
-        email: "walex@gmail.com",
-        password: "wal1234"
+        email: "wallex@gmail.com",
+        password: "wallex1234"
     },
 
     {
@@ -72,21 +72,26 @@ const users = [
 ]
 
 app.post("/login", (req, res) => {
-    const {name, email, password} = req.body
+    const {email, password} = req.body
 
-    const user = users,find(u => u.email === email)
-    if(!email){
-        res.send(401).json({message: "Invalid email"})
+    const user = users.find(user => user.email === email && user.password === password);
+
+    if(!user){
+        return res.status(401).json({success: false, message: "Invalid credentials"});
     }
 
-    if(users.password !== password){
-        res.status(401).json({message: "Invalid password"})
+    if(user.password !== req.body.password){
+        return res.status(401).json({success: false, message: "Invalid password"})
     }
+    
 
-    return res.json({message: `Login Successful ${name}`})
+    return res.json({message: "Login Successful "})
 })
 
 
 app.listen(4000, () => {
     console.log("server is runing on port 4000")
 })
+
+
+// are middlesware that dit between ur function amd ur post
